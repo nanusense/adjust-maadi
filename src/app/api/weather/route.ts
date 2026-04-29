@@ -51,25 +51,28 @@ function getRealisticFallback() {
 export async function GET() {
   const apiKey = process.env.OPENWEATHERMAP_API_KEY;
 
+  // No-cache headers for fallback responses so stale mock data never persists
+  const noCache = { headers: { "Cache-Control": "no-store" } };
+
   if (!apiKey) {
-    return NextResponse.json(getRealisticFallback(), { status: 200 });
+    return NextResponse.json(getRealisticFallback(), noCache);
   }
 
   try {
     const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=Bangalore,IN&appid=${apiKey}&units=metric`,
+      `https://api.openweathermap.org/data/2.5/weather?lat=12.9716&lon=77.5946&appid=${apiKey}&units=metric`,
       { next: { revalidate: 600 } }
     );
 
     if (!res.ok) {
       console.error(`OpenWeatherMap returned ${res.status} - using climate fallback`);
-      return NextResponse.json(getRealisticFallback(), { status: 200 });
+      return NextResponse.json(getRealisticFallback(), noCache);
     }
 
     const data = await res.json();
-    return NextResponse.json(data);
+    return NextResponse.json(data); // real data — cached 10 min via module revalidate
   } catch (error) {
     console.error("Weather API error:", error);
-    return NextResponse.json(getRealisticFallback(), { status: 200 });
+    return NextResponse.json(getRealisticFallback(), noCache);
   }
 }
