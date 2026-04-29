@@ -170,8 +170,8 @@ export function WordOfTheDay() {
           </div>
         </div>
 
-        {/* Bottom row: next word hint and share */}
-        <div className="mt-6 flex items-center justify-between px-2">
+        {/* Bottom row: hint + share */}
+        <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-2">
           <p className="text-sm" style={{ color: "#8B7355" }}>
             A new word every day. Come back tomorrow for more Kannada.
           </p>
@@ -185,7 +185,7 @@ export function WordOfTheDay() {
                 alert("Copied to clipboard!");
               }
             }}
-            className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-95"
+            className="self-start sm:self-auto flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full transition-all hover:scale-105 active:scale-95 flex-shrink-0"
             style={{
               background: "rgba(198, 124, 42, 0.1)",
               color: "#C67C2A",
