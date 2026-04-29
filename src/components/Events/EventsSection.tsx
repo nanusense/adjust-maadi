@@ -70,7 +70,7 @@ export function EventsSection() {
             >
               Luma
             </a>
-            . Cultural events coming soon.
+.
           </p>
         </div>
 
