@@ -14,6 +14,7 @@ import { MetroCard } from "@/components/Traffic/MetroCard";
 import { NostalgiaSection } from "@/components/Nostalgia/NostalgiaSection";
 import { NewsSection } from "@/components/News/NewsSection";
 import { EventsSection } from "@/components/Events/EventsSection";
+import { SectionNav } from "@/components/Nav/SectionNav";
 
 /** Thin rule used between same-background sections */
 function Rule() {
@@ -81,11 +82,15 @@ export default function Home() {
         </div>
       </nav>
 
+      <SectionNav />
+
       {/* ── 1. Hero ── */}
-      <MorningGreeting />
+      <div id="hero">
+        <MorningGreeting />
+      </div>
 
       {/* ── 2. Traffic — what people open this for ── */}
-      <section className="py-20 px-4" style={{ backgroundColor: "#1a1a2e" }}>
+      <section id="traffic" className="py-20 px-4" style={{ backgroundColor: "#1a1a2e" }}>
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <LabelDark>Namma Traffic</LabelDark>
@@ -105,15 +110,15 @@ export default function Home() {
 
       {/* ── 3. Bengaluru News ── */}
       <Rule />
-      <NewsSection />
+      <div id="news"><NewsSection /></div>
 
       {/* ── 4. Events ── */}
-      <EventsSection />
+      <div id="events"><EventsSection /></div>
 
       <Rule />
 
       {/* ── 5. Garden City ── */}
-      <section className="py-20 px-4">
+      <section id="nature" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <Label>Garden City</Label>
@@ -134,11 +139,11 @@ export default function Home() {
 
       <Rule />
 
-      {/* ── 4. Kannada Word ── */}
-      <WordOfTheDay />
+      {/* ── Kannada Word ── */}
+      <div id="kannada"><WordOfTheDay /></div>
 
-      {/* ── 5. Built Here ── */}
-      <section className="py-20 px-4" style={{ backgroundColor: "#F5EDD5" }}>
+      {/* ── Built Here ── */}
+      <section id="tech" className="py-20 px-4" style={{ backgroundColor: "#F5EDD5" }}>
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <Label>Built in Bengaluru</Label>
@@ -156,8 +161,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 6 + 7. History & Famous People ── */}
-      <section className="py-20 px-4">
+      {/* ── History & Famous People ── */}
+      <section id="history" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>
@@ -192,8 +197,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 10. City Numbers ── */}
-      <CounterGrid />
+      {/* ── City Numbers ── */}
+      <div id="numbers"><CounterGrid /></div>
 
       {/* ── Footer ── */}
       <footer

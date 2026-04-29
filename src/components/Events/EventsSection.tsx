@@ -31,14 +31,15 @@ function formatEventDate(isoStart: string, isoEnd: string): string {
   return `${dateStr} · ${timeStr}`;
 }
 
-function isToday(isoStart: string): boolean {
+function dayLabel(isoStart: string): "Today" | "Tomorrow" | null {
   const start = new Date(isoStart);
   const now = new Date();
-  return (
-    start.getFullYear() === now.getFullYear() &&
-    start.getMonth() === now.getMonth() &&
-    start.getDate() === now.getDate()
-  );
+  const sameYear  = (d: Date) => d.getFullYear() === now.getFullYear();
+  const sameMonth = (d: Date) => d.getMonth() === now.getMonth();
+  if (sameYear(start) && sameMonth(start) && start.getDate() === now.getDate()) return "Today";
+  const tomorrow = new Date(now); tomorrow.setDate(now.getDate() + 1);
+  if (sameYear(start) && start.getMonth() === tomorrow.getMonth() && start.getDate() === tomorrow.getDate()) return "Tomorrow";
+  return null;
 }
 
 export function EventsSection() {
@@ -59,7 +60,7 @@ export function EventsSection() {
             Bengaluru Events
           </h2>
           <p className="mt-2 text-sm" style={{ color: "#8B7355" }}>
-            Tech meetups, community talks &amp; startup events — from{" "}
+            Tech meetups &amp; startup events today &amp; tomorrow — from{" "}
             <a
               href="https://lu.ma/bengaluru"
               target="_blank"
@@ -95,7 +96,7 @@ export function EventsSection() {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {events.map((event) => {
-              const today = isToday(event.startAt);
+              const day = dayLabel(event.startAt);
               return (
                 <a
                   key={event.id}
@@ -105,19 +106,23 @@ export function EventsSection() {
                   className="group relative rounded-2xl p-5 flex flex-col gap-2 transition-all hover:-translate-y-0.5 hover:shadow-md"
                   style={{
                     background: "rgba(255,255,255,0.7)",
-                    border: today
+                    border: day === "Today"
                       ? "1px solid rgba(198,124,42,0.4)"
                       : "1px solid rgba(45,80,22,0.08)",
                     boxShadow: "0 2px 12px rgba(45,80,22,0.04)",
                   }}
                 >
-                  {/* Today badge */}
-                  {today && (
+                  {/* Day badge */}
+                  {day && (
                     <span
                       className="absolute top-4 right-4 text-xs font-medium px-2 py-0.5 rounded-full"
-                      style={{ background: "rgba(198,124,42,0.12)", color: "#C67C2A" }}
+                      style={
+                        day === "Today"
+                          ? { background: "rgba(198,124,42,0.12)", color: "#C67C2A" }
+                          : { background: "rgba(45,80,22,0.08)",   color: "#2D5016" }
+                      }
                     >
-                      Today
+                      {day}
                     </span>
                   )}
 
