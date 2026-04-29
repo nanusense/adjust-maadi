@@ -35,8 +35,8 @@ function isBengaluruEvent(geo: Record<string, unknown> | null, coordinate: { lat
 export async function GET() {
   try {
     const res = await fetch(
-      // geo=bengaluru works from Indian IPs; we filter by coordinates as a safety net
-      "https://api.lu.ma/discover/get-paginated-events?pagination_limit=50&geo=bengaluru",
+      // Use explicit lat/lon so results are location-correct from any server IP
+      "https://api.lu.ma/discover/get-paginated-events?pagination_limit=50&latitude=12.9716&longitude=77.5946",
       {
         next: { revalidate: 3600 },
         headers: { Accept: "application/json" },

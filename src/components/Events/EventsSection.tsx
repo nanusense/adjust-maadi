@@ -60,7 +60,7 @@ export function EventsSection() {
             Bengaluru Events
           </h2>
           <p className="mt-2 text-sm" style={{ color: "#8B7355" }}>
-            Tech meetups &amp; startup events today &amp; tomorrow — from{" "}
+            Tech meetups &amp; startup events today &amp; tomorrow, via{" "}
             <a
               href="https://lu.ma/bengaluru"
               target="_blank"

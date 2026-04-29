@@ -147,15 +147,6 @@ export function MorningGreeting() {
           ) : null}
         </div>
 
-        {/* Golden hour teaser */}
-        {sunData.goldenHour && !loading && (
-          <div
-            className="fade-up-child stagger-5 text-sm italic"
-            style={{ color: isRainy ? "rgba(255,255,255,0.7)" : "#C67C2A" }}
-          >
-            ✨ Golden hour in Bengaluru today at {sunData.goldenHour}. Find a rooftop.
-          </div>
-        )}
       </div>
 
       {/* Scroll hint — anchored to section bottom, not content div */}
