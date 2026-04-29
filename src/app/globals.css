@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-warm: #FBF5E6;
+    --forest: #2D5016;
+    --forest-light: #4A7A28;
+    --amber: #C67C2A;
+    --gold: #D4A843;
+    --bark: #5C3A1E;
+    --cream: #FBF5E6;
+    --parchment: #F0E6C8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #FBF5E6;
+    color: #2D2D2D;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .font-lora {
+    font-family: "Lora", Georgia, serif;
+  }
+
+  .font-kannada {
+    font-family: "Noto Sans Kannada", sans-serif;
+  }
+
+  .kannada-watermark {
+    font-family: "Noto Sans Kannada", sans-serif;
+    font-size: clamp(4rem, 15vw, 16rem);
+    line-height: 1;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(45, 80, 22, 0.08);
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.02em;
+  }
+
+  .warm-card {
+    background: linear-gradient(135deg, #FBF5E6 0%, #F5EDD5 100%);
+    border: 1px solid rgba(198, 124, 42, 0.15);
+    border-radius: 1rem;
+  }
+
+  .forest-card {
+    background: linear-gradient(135deg, #2D5016 0%, #3D6B20 100%);
+    color: #FBF5E6;
+    border-radius: 1rem;
+  }
+
+  .glass-warm {
+    background: rgba(251, 245, 230, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      #C67C2A 0%,
+      #D4A843 25%,
+      #ECC060 50%,
+      #D4A843 75%,
+      #C67C2A 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .rain-drop {
+    position: absolute;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(135, 206, 235, 0.6));
+    animation: rainFall linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes rainFall {
+    0% { transform: translateY(-100px); opacity: 0.8; }
+    100% { transform: translateY(110vh); opacity: 0; }
+  }
+
+  .fade-up-child {
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+  .stagger-7 { animation-delay: 0.7s; }
+  .stagger-8 { animation-delay: 0.8s; }
+
+  .photo-overlay {
+    background: linear-gradient(
+      to bottom,
+      transparent 30%,
+      rgba(45, 80, 22, 0.7) 100%
+    );
+  }
+
+  .counter-number {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.02em;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FBF5E6;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(198, 124, 42, 0.4);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(198, 124, 42, 0.7);
+}
+
+::selection {
+  background: rgba(212, 168, 67, 0.3);
+  color: #2D5016;
 }
