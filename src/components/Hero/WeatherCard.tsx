@@ -1,6 +1,6 @@
 "use client";
 
-import { Droplets, Wind, Thermometer, Sunrise, Sunset, Sparkles, Cloud, Sun } from "lucide-react";
+import { Droplets, Wind, Thermometer, Sunrise, Sunset, Sparkles, Cloud, Info } from "lucide-react";
 import { WeatherData } from "@/hooks/useWeather";
 
 interface WeatherCardProps {
@@ -15,14 +15,15 @@ const conditionIcon: Record<string, string> = {
   Thunderstorm: "⛈️", Snow: "❄️", Mist: "🌫️", Haze: "🌫️", Fog: "🌫️",
 };
 
-// AQI: OWM 1–5 → label + colour
-const AQI_CONFIG = [
-  { label: "Good",      color: "#16a34a", bg: "rgba(22,163,74,0.1)" },
-  { label: "Fair",      color: "#65a30d", bg: "rgba(101,163,13,0.1)" },
-  { label: "Moderate",  color: "#d97706", bg: "rgba(217,119,6,0.1)"  },
-  { label: "Poor",      color: "#ea580c", bg: "rgba(234,88,12,0.1)"  },
-  { label: "Very Poor", color: "#dc2626", bg: "rgba(220,38,38,0.1)"  },
-];
+// Indian CPCB AQI 0–500 → label + colour
+function aqiConfig(aqi: number) {
+  if (aqi <= 50)  return { label: "Good",         color: "#16a34a", bg: "rgba(22,163,74,0.1)"   };
+  if (aqi <= 100) return { label: "Satisfactory",  color: "#65a30d", bg: "rgba(101,163,13,0.1)" };
+  if (aqi <= 200) return { label: "Moderate",      color: "#d97706", bg: "rgba(217,119,6,0.1)"  };
+  if (aqi <= 300) return { label: "Poor",          color: "#ea580c", bg: "rgba(234,88,12,0.1)"  };
+  if (aqi <= 400) return { label: "Very Poor",     color: "#dc2626", bg: "rgba(220,38,38,0.1)"  };
+  return                 { label: "Severe",        color: "#7c3aed", bg: "rgba(124,58,237,0.1)" };
+}
 
 // UV index → label + colour
 function uvConfig(uv: number) {
@@ -44,7 +45,7 @@ function cloudLabel(pct: number) {
 
 export function WeatherCard({ weather, sunrise, sunset, goldenHour }: WeatherCardProps) {
   const icon = conditionIcon[weather.condition] ?? "🌤️";
-  const aqi = weather.aqi != null ? AQI_CONFIG[weather.aqi - 1] : null;
+  const aqi = weather.aqi != null ? aqiConfig(weather.aqi) : null;
   const uv  = weather.uvIndex != null ? uvConfig(weather.uvIndex) : null;
 
   return (
@@ -110,16 +111,17 @@ export function WeatherCard({ weather, sunrise, sunset, goldenHour }: WeatherCar
         </div>
 
         {/* AQI badge */}
-        {aqi && (
+        {aqi && weather.aqi != null && (
           <span
             className="flex items-center gap-1 px-2 py-0.5 rounded-full font-medium"
             style={{ background: aqi.bg, color: aqi.color }}
+            title="Air Quality Index (CPCB/WAQI ground station). Scale: 0–50 Good · 51–100 Satisfactory · 101–200 Moderate · 201–300 Poor · 301–400 Very Poor · 401–500 Severe"
           >
-            <Sun size={11} />
-            AQI {aqi.label}
+            AQI {weather.aqi} · {aqi.label}
             {weather.pm25 != null && (
               <span className="opacity-70">· PM2.5 {Math.round(weather.pm25)}</span>
             )}
+            <Info size={10} className="opacity-60" />
           </span>
         )}
 

@@ -9,9 +9,10 @@ export interface WeatherData {
   description: string;
   humidity: number;
   windSpeed: number;
-  cloudCover: number;   // %
-  aqi: number | null;   // 1–5 OWM scale
-  pm25: number | null;  // µg/m³
+  cloudCover: number;    // %
+  aqi: number | null;    // 0–500 Indian CPCB/WAQI scale
+  pm25: number | null;   // µg/m³
+  dominentpol: string | null; // e.g. "pm25"
   uvIndex: number | null;
   icon: string;
   isRainy: boolean;
@@ -54,6 +55,7 @@ export function useWeather() {
           cloudCover: data.clouds?.all ?? 0,
           aqi: data.aqi ?? null,
           pm25: data.pm25 ?? null,
+          dominentpol: data.dominentpol ?? null,
           uvIndex: data.uvIndex ?? null,
           icon: data.weather?.[0]?.icon || "01d",
           isRainy,
@@ -64,7 +66,7 @@ export function useWeather() {
         setWeather({
           temp: 24, feelsLike: 24, condition: "Clear", description: "clear sky",
           humidity: 65, windSpeed: 12, cloudCover: 20,
-          aqi: null, pm25: null, uvIndex: null,
+          aqi: null, pm25: null, dominentpol: null, uvIndex: null,
           icon: "01d", isRainy: false, isCloudy: false,
           positiveMessage: "A beautiful day in Bengaluru.",
         });

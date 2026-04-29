@@ -57,12 +57,16 @@ export async function GET() {
 
   if (!apiKey) return NextResponse.json(getRealisticFallback(), noCache);
 
+  const waqiToken = process.env.WAQI_TOKEN;
+
   try {
-    // Fetch weather, AQI, and UV in parallel
-    const [weatherRes, aqiRes, uvRes] = await Promise.all([
+    // Fetch weather, UV, and WAQI AQI in parallel
+    const [weatherRes, uvRes, waqiRes] = await Promise.all([
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&appid=${apiKey}&units=metric`, { next: { revalidate: 600 } }),
-      fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${LAT}&lon=${LON}&appid=${apiKey}`, { next: { revalidate: 600 } }),
       fetch(`https://api.openweathermap.org/data/2.5/uvi?lat=${LAT}&lon=${LON}&appid=${apiKey}`, { next: { revalidate: 600 } }),
+      waqiToken
+        ? fetch(`https://api.waqi.info/feed/bangalore/?token=${waqiToken}`, { next: { revalidate: 600 } })
+        : Promise.resolve(null),
     ]);
 
     if (!weatherRes.ok) {
@@ -70,17 +74,24 @@ export async function GET() {
       return NextResponse.json(getRealisticFallback(), noCache);
     }
 
-    const [weather, aqiData, uvData] = await Promise.all([
+    const [weather, uvData, waqiData] = await Promise.all([
       weatherRes.json(),
-      aqiRes.ok ? aqiRes.json() : null,
       uvRes.ok ? uvRes.json() : null,
+      waqiRes && waqiRes.ok ? waqiRes.json() : null,
     ]);
+
+    // WAQI returns real CPCB ground-station AQI on the Indian 0–500 scale
+    const aqiValue   = waqiData?.status === "ok" ? (waqiData.data?.aqi ?? null) : null;
+    const dominentpol = waqiData?.status === "ok" ? (waqiData.data?.dominentpol ?? null) : null;
+    // PM2.5 from WAQI iaqi object
+    const pm25 = waqiData?.status === "ok" ? (waqiData.data?.iaqi?.pm25?.v ?? null) : null;
 
     return NextResponse.json({
       ...weather,
-      aqi: aqiData?.list?.[0]?.main?.aqi ?? null,         // 1–5
-      pm25: aqiData?.list?.[0]?.components?.pm2_5 ?? null, // µg/m³
-      uvIndex: uvData?.value ?? null,                       // 0–11+
+      aqi: aqiValue,          // Indian 0–500 scale (CPCB/WAQI)
+      pm25,                   // µg/m³
+      dominentpol,            // e.g. "pm25"
+      uvIndex: uvData?.value ?? null, // 0–11+
     });
   } catch (error) {
     console.error("Weather API error:", error);
