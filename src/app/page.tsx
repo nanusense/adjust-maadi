@@ -13,6 +13,7 @@ import { TrafficPulse } from "@/components/Traffic/TrafficPulse";
 import { MetroCard } from "@/components/Traffic/MetroCard";
 import { NostalgiaSection } from "@/components/Nostalgia/NostalgiaSection";
 import { NewsSection } from "@/components/News/NewsSection";
+import { EventsSection } from "@/components/Events/EventsSection";
 
 /** Thin rule used between same-background sections */
 function Rule() {
@@ -106,9 +107,12 @@ export default function Home() {
       <Rule />
       <NewsSection />
 
+      {/* ── 4. Events ── */}
+      <EventsSection />
+
       <Rule />
 
-      {/* ── 4. Garden City ── */}
+      {/* ── 5. Garden City ── */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
