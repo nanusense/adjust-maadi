@@ -249,8 +249,7 @@ export default function Home() {
                 style={{ color: "#C67C2A" }}
               >
                 buy me a beer
-              </a>{" "}
-              🍺
+              </a>
             </p>
           </div>
         </div>
