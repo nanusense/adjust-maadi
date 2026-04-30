@@ -34,7 +34,7 @@ export function TrafficPulse() {
     return () => clearInterval(interval);
   }, []);
 
-  const currentTip = TRAFFIC_TIPS.find((t) => {
+  const timeTip = TRAFFIC_TIPS.find((t) => {
     if (t.time === "Before 7am") return hour < 7;
     if (t.time === "After 9pm") return hour >= 21;
     const [start, end] = t.time.split(" – ").map((s) => parseInt(s));
@@ -43,6 +43,21 @@ export function TrafficPulse() {
 
   // Build a lookup map from live data
   const liveMap = new Map(live.map((c) => [c.name, c]));
+
+  // When live data is available, derive the tip from actual corridor statuses
+  function getLiveTip() {
+    if (!live.length) return timeTip;
+    const counts = { severe: 0, heavy: 0, moderate: 0, clear: 0 };
+    live.forEach((c) => { counts[c.liveSeverity] = (counts[c.liveSeverity] ?? 0) + 1; });
+    const bad = counts.severe + counts.heavy;
+    if (bad >= live.length * 0.6)
+      return { icon: "🔴", label: "Heavy Traffic", tip: "Multiple corridors are congested right now. Allow extra time for your journey." };
+    if (bad >= live.length * 0.3)
+      return { icon: "🟡", label: "Some Congestion", tip: "A few corridors are busy. Check your specific route before heading out." };
+    return { icon: "🟢", label: "Roads Clear", tip: "Most corridors are moving freely right now. Good time to travel." };
+  }
+
+  const currentTip = isLive ? getLiveTip() : timeTip;
 
   return (
     <div
