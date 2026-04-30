@@ -190,7 +190,9 @@ export function TrafficPulse() {
       </div>
 
       <div className="px-5 py-3 text-xs text-center" style={{ color: "#8B7355", borderTop: "1px solid rgba(45,80,22,0.06)" }}>
-        {isLive ? "Live speed data from TomTom · Updated every 10 min" : "Based on historical Bangalore traffic patterns"}
+        {isLive
+          ? "Live speed data from TomTom · Updated every 10 min · Accuracy in Bengaluru may vary"
+          : "Based on historical Bangalore traffic patterns"}
         {" · "}Tap any corridor for tips.
       </div>
     </div>
