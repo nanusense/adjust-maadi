@@ -47,7 +47,7 @@ export function WordOfTheDay() {
             className="font-lora text-4xl md:text-5xl"
             style={{ color: "#2D5016" }}
           >
-            Kannada Gotha?
+            Kannada Gottha?
           </h2>
           <p className="mt-2 text-sm" style={{ color: "#8B7355" }}>
             A new Kannada word every day. Learn, share, celebrate.

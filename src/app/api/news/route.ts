@@ -10,13 +10,23 @@ interface NewsItem {
   sourceUrl: string;
 }
 
+function decodeEntities(str: string): string {
+  return str
+    .replace(/&apos;/g, "'").replace(/&#8217;/g, "'").replace(/&#8216;/g, "'")
+    .replace(/&quot;/g, '"').replace(/&#8220;/g, '"').replace(/&#8221;/g, '"')
+    .replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+    .replace(/&#8211;/g, "–").replace(/&#8212;/g, "—")
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(parseInt(code)));
+}
+
 function parseRSS(xml: string, source: NewsItem["source"], sourceUrl: string): NewsItem[] {
   const items: NewsItem[] = [];
   const blocks = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)];
 
   for (const block of blocks) {
     const inner = block[1];
-    const title = inner.match(/<title>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/)?.[1]?.trim() ?? "";
+    const rawTitle = inner.match(/<title>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/)?.[1]?.trim() ?? "";
+    const title = decodeEntities(rawTitle);
     const link  = inner.match(/<link>([\s\S]*?)<\/link>/)?.[1]?.trim() ?? "";
     const pub   = inner.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1]?.trim() ?? "";
 

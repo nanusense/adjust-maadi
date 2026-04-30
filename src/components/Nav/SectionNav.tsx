@@ -3,14 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 
 const SECTIONS = [
-  { id: "traffic",  label: "Traffic" },
-  { id: "news",     label: "News" },
-  { id: "events",   label: "Events" },
+  { id: "traffic",  label: "Namma Traffic" },
+  { id: "news",     label: "City News" },
+  { id: "events",   label: "What's On" },
   { id: "nature",   label: "Garden City" },
-  { id: "kannada",  label: "Kannada" },
-  { id: "tech",     label: "Tech" },
-  { id: "history",  label: "History" },
-  { id: "numbers",  label: "Numbers" },
+  { id: "kannada",  label: "ಕನ್ನಡ" },
+  { id: "tech",     label: "Built Here" },
+  { id: "history",  label: "Heritage" },
+  { id: "numbers",  label: "City Facts" },
 ] as const;
 
 export function SectionNav() {

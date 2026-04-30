@@ -313,7 +313,7 @@ export function MetroCard() {
           }}
         >
           <MapPin size={11} />
-          {showRoute ? "Hide route" : `Show all ${line.stations} stations`}
+          {showRoute ? "Hide stations" : `Show key stations`}
         </button>
       </div>
 
