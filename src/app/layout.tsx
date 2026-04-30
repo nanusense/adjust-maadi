@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lora, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const lora = Lora({
@@ -72,6 +73,18 @@ export default function RootLayout({
           crossOrigin=""
         />
       </head>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-CPY3S2SCRM"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CPY3S2SCRM');
+        `}
+      </Script>
       <body
         className={`${inter.className} antialiased`}
         style={{ backgroundColor: "#FBF5E6" }}
