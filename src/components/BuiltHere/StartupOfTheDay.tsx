@@ -89,17 +89,9 @@ export function StartupOfTheDay() {
       </div>
 
       {/* Footer */}
-      <div
-        className="px-6 pb-5"
-      >
+      <div className="px-6 pb-5">
         <div className="text-xs" style={{ color: "#8B7355" }}>
           Founded by {startup.founder}
-        </div>
-        <div
-          className="text-xs mt-1 font-medium italic"
-          style={{ color: startup.color }}
-        >
-          &ldquo;This global company started right here in Bengaluru&rdquo;
         </div>
       </div>
     </div>
