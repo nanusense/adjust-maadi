@@ -71,7 +71,7 @@ export default function Home() {
       >
         <div className="flex items-center gap-3">
           <span className="font-kannada font-bold text-lg" style={{ color: "#2D5016" }}>
-            ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ
+            ನಮ್ಮ ಊರು
           </span>
           <span className="text-xs hidden sm:block" style={{ color: "#8B7355" }}>
             · Bengaluru
@@ -207,13 +207,13 @@ export default function Home() {
       >
         <div className="max-w-2xl mx-auto">
           <div className="font-kannada text-4xl font-bold mb-1" style={{ color: "#2D5016" }}>
-            ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ
+            ನಮ್ಮ ಊರು
           </div>
           <div className="font-lora italic text-lg mb-4" style={{ color: "#C67C2A" }}>
-            Adjust Maadi
+            Namma Ooru
           </div>
           <p className="text-sm mb-6" style={{ color: "#8B7355" }}>
-            Go with the flow. Live and let live. Bengaluru&apos;s philosophy in two words.
+            Our city. Our stories. A quiet celebration of Bengaluru.
           </p>
           <div className="text-xs space-y-1.5" style={{ color: "rgba(92, 58, 30, 0.5)" }}>
             <p>

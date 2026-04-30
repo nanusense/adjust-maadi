@@ -177,7 +177,7 @@ export function WordOfTheDay() {
           </p>
           <button
             onClick={() => {
-              const text = `Today's Kannada word: ${word.kannada} (${word.transliteration}): ${word.meaning}\n\n"${word.example.english}"\n\n${word.context}\n\nLearn more at Adjust Maadi 🌿`;
+              const text = `Today's Kannada word: ${word.kannada} (${word.transliteration}): ${word.meaning}\n\n"${word.example.english}"\n\n${word.context}\n\nLearn more at Namma Ooru 🌿`;
               if (navigator.share) {
                 navigator.share({ title: "Kannada Word of the Day", text });
               } else {

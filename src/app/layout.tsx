@@ -17,12 +17,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Adjust Maadi · ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ · A Love Letter to Bengaluru",
+  title: "Namma Ooru · ನಮ್ಮ ಊರು · A Love Letter to Bengaluru",
   description:
     "The city portal for proud Bangaloreans. Lakes, parks, Kannada words, startups, famous people: celebrating everything wonderful about ಬೆಂಗಳೂರು.",
   keywords: ["Bangalore", "Bengaluru", "Kannada", "Karnataka", "India", "city portal"],
   openGraph: {
-    title: "Adjust Maadi · ಅಡ್ಜಸ್ಟ್ ಮಾಡಿ",
+    title: "Namma Ooru · ನಮ್ಮ ಊರು",
     description: "A love letter to Bengaluru. The city portal a proud Bangalorean bookmarks.",
     locale: "en_IN",
     type: "website",

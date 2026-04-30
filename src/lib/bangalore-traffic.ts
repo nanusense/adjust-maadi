@@ -8,6 +8,7 @@ export interface TrafficCorridor {
   tip: string;
   metroAlternative?: string;
   alternateRoute?: string;
+  gps: { lat: number; lon: number }; // TomTom flow query point
 }
 
 export interface MetroLine {
@@ -38,6 +39,7 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     tip: "The worst junction in Bangalore. If you must cross it, leave before 7am or after 9pm. Or take the metro to Bommasandra.",
     metroAlternative: "Green Line to Silk Institute",
     alternateRoute: "Hosur Road via Sarjapur Road outer ring",
+    gps: { lat: 12.9177, lon: 77.6233 },
   },
   {
     name: "Hebbal Flyover",
@@ -48,6 +50,7 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "severe",
     tip: "The gateway to the airport. Leave for the airport at least 90 mins early during peak hours. Bellary Road gets completely locked.",
     alternateRoute: "Thanisandra Main Road or Nagawara via New Airport Road",
+    gps: { lat: 13.0358, lon: 77.5970 },
   },
   {
     name: "Marathahalli Bridge",
@@ -58,6 +61,7 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "severe",
     tip: "The IT corridor's daily nightmare. The bridge itself is the bottleneck. Use Kadubeesanahalli or Sarjapur ORR instead.",
     alternateRoute: "Kadubeesanahalli junction or Tin Factory via ORR",
+    gps: { lat: 12.9592, lon: 77.7010 },
   },
   {
     name: "KR Puram Bridge",
@@ -69,6 +73,7 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     tip: "The old railway bridge creates a permanent bottleneck. Metro Purple Line from Whitefield to Indiranagar is a genuine escape.",
     metroAlternative: "Purple Line: Whitefield to Indiranagar (26 min)",
     alternateRoute: "Hoodi Junction via Budigere Road",
+    gps: { lat: 13.0050, lon: 77.6942 },
   },
   {
     name: "Tin Factory Junction",
@@ -79,6 +84,7 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "heavy",
     tip: "Four roads converge here with no proper grade separator. Metro Purple Line runs parallel and is far faster.",
     metroAlternative: "Purple Line: Baiyappanahalli to Indiranagar",
+    gps: { lat: 13.0110, lon: 77.6580 },
   },
   {
     name: "Bannerghatta Road",
@@ -90,6 +96,7 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     tip: "The Green Line metro along this corridor will transform South Bangalore. Until then, leave early or late.",
     metroAlternative: "Green Line (under construction on this stretch)",
     alternateRoute: "Kanakapura Road or Mysore Road via NICE corridor",
+    gps: { lat: 12.9058, lon: 77.5926 },
   },
   {
     name: "Hosur Road",
@@ -100,6 +107,7 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "heavy",
     tip: "The 18km stretch from Silk Board to Electronic City can take 2 hours at peak. Metro Green Line (Silk Institute) reaches the end now.",
     metroAlternative: "Green Line to Silk Institute / Bommasandra",
+    gps: { lat: 12.8957, lon: 77.6360 },
   },
   {
     name: "Mysore Road",
@@ -110,6 +118,7 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "moderate",
     tip: "The Purple Line extension to Kengeri has massively eased this corridor. If you're going west, consider the metro.",
     metroAlternative: "Purple Line to Kengeri or Challaghatta",
+    gps: { lat: 12.9399, lon: 77.5338 },
   },
   {
     name: "Old Madras Road",
@@ -120,6 +129,7 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "moderate",
     tip: "Gets congested at railway crossings. The Purple Line extension towards Whitefield has reduced pressure significantly.",
     metroAlternative: "Purple Line: Indiranagar to Whitefield",
+    gps: { lat: 13.0069, lon: 77.7163 },
   },
   {
     name: "Outer Ring Road (South)",
@@ -130,6 +140,7 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "severe",
     tip: "The IT corridor ORR is Bangalore's most congested stretch. 6km can take 90 minutes. There is no easy fix — leave early.",
     alternateRoute: "Sarjapur Road inner stretch or Bellandur bypass",
+    gps: { lat: 12.9380, lon: 77.6963 },
   },
 ];
 

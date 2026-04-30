@@ -147,23 +147,39 @@ export function MorningGreeting() {
           ) : null}
         </div>
 
-      </div>
-
-      {/* Scroll hint — anchored to section bottom, not content div */}
-      <div
-        className="fade-up-child stagger-8 absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        style={{ color: isRainy ? "rgba(255,255,255,0.5)" : "rgba(45, 80, 22, 0.5)" }}
-      >
-        <span className="text-xs tracking-widest uppercase">Scroll to explore</span>
+        {/* Hero intro + scroll hint */}
         <div
-          className="w-px h-8"
+          className="fade-up-child stagger-5 glass-warm rounded-2xl px-6 py-5 max-w-sm text-center"
           style={{
-            background: isRainy
-              ? "linear-gradient(to bottom, rgba(255,255,255,0.5), transparent)"
-              : "linear-gradient(to bottom, rgba(45, 80, 22, 0.4), transparent)",
-            animation: "fadeIn 2s ease-out 1s both",
+            background: isRainy ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.45)",
+            border: isRainy ? "1px solid rgba(255,255,255,0.15)" : "1px solid rgba(198,124,42,0.15)",
           }}
-        />
+        >
+          <p
+            className="font-lora italic text-sm leading-relaxed"
+            style={{ color: isRainy ? "rgba(255,255,255,0.85)" : "rgba(45,80,22,0.7)" }}
+          >
+            Bengaluru is chaotic, complicated, and occasionally infuriating.
+            It is also extraordinary. This is a small record of what makes it worth it.
+          </p>
+          <div className="mt-4 flex flex-col items-center gap-1.5">
+            <span
+              className="text-xs tracking-widest uppercase"
+              style={{ color: isRainy ? "rgba(255,255,255,0.45)" : "rgba(45,80,22,0.4)" }}
+            >
+              Scroll to explore
+            </span>
+            <div
+              className="w-px h-6"
+              style={{
+                background: isRainy
+                  ? "linear-gradient(to bottom, rgba(255,255,255,0.4), transparent)"
+                  : "linear-gradient(to bottom, rgba(45,80,22,0.3), transparent)",
+              }}
+            />
+          </div>
+        </div>
+
       </div>
     </section>
   );
