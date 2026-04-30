@@ -239,6 +239,19 @@ export default function Home() {
                 shiftingradius@gmail.com
               </a>
             </p>
+            <p className="pt-1">
+              If you like this,{" "}
+              <a
+                href="https://razorpay.me/@sandeepnanu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 transition-opacity hover:opacity-70"
+                style={{ color: "#C67C2A" }}
+              >
+                buy me a beer
+              </a>{" "}
+              🍺
+            </p>
           </div>
         </div>
       </footer>
