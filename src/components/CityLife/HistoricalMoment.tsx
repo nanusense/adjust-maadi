@@ -33,7 +33,7 @@ export function HistoricalMoment() {
           className="text-xs tracking-widest uppercase mb-3 flex items-center gap-2"
           style={{ color: "#C67C2A" }}
         >
-          <span>📅</span> From Bengaluru&apos;s History
+          <span>📜</span> From Bengaluru&apos;s History
         </div>
 
         <div className="flex items-start gap-3 mb-4">
