@@ -56,22 +56,5 @@ export function getGreeting(): { kannada: string; english: string } {
 export function findClosestHistoricalEvent(
   events: { month: number; day: number; title: string; description: string; year?: number; emoji?: string }[]
 ): { month: number; day: number; title: string; description: string; year?: number; emoji?: string } {
-  const now = new Date();
-  const currentMonth = now.getMonth() + 1;
-  const currentDay = now.getDate();
-
-  let closest = events[0];
-  let minDiff = Infinity;
-
-  for (const event of events) {
-    const diff = Math.abs(
-      (event.month - currentMonth) * 30 + (event.day - currentDay)
-    );
-    if (diff < minDiff) {
-      minDiff = diff;
-      closest = event;
-    }
-  }
-
-  return closest;
+  return events[getDayOfYear() % events.length];
 }
