@@ -17,15 +17,37 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Namma Ooru · ನಮ್ಮ ಊರು · A Love Letter to Bengaluru",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://nammaooru.in"),
+  title: "Namma Ooru · ನಮ್ಮ ಊರು",
   description:
-    "The city portal for proud Bangaloreans. Lakes, parks, Kannada words, startups, famous people: celebrating everything wonderful about ಬೆಂಗಳೂರು.",
-  keywords: ["Bangalore", "Bengaluru", "Kannada", "Karnataka", "India", "city portal"],
+    "Bengaluru is chaotic, complicated, and occasionally infuriating. It is also extraordinary. Live traffic, weather, Kannada, lakes, startups — a quiet celebration of our city.",
+  keywords: ["Bangalore", "Bengaluru", "Namma Ooru", "Kannada", "Karnataka", "traffic", "city portal"],
   openGraph: {
     title: "Namma Ooru · ನಮ್ಮ ಊರು",
-    description: "A love letter to Bengaluru. The city portal a proud Bangalorean bookmarks.",
+    description:
+      "Bengaluru is chaotic, complicated, and occasionally infuriating. It is also extraordinary. A quiet celebration of our city.",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Cubbon Park, Bengaluru — the green heart of the city",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Namma Ooru · ನಮ್ಮ ಊರು",
+    description: "A quiet celebration of Bengaluru.",
+    images: ["/og-image.jpg"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+    ],
   },
 };
 
