@@ -50,7 +50,7 @@ export function WeatherCard({ weather, sunrise, sunset, goldenHour }: WeatherCar
 
   return (
     <div
-      className="rounded-2xl p-5 max-w-sm w-full"
+      className="rounded p-5 max-w-sm w-full"
       style={{
         background: "rgba(255,255,255,0.55)",
         backdropFilter: "blur(16px)",

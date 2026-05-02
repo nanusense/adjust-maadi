@@ -192,7 +192,7 @@ export function MetroCard() {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden shadow-lg"
+      className="rounded overflow-hidden shadow-lg"
       style={{ border: "1px solid rgba(45,80,22,0.1)", background: "#FEFCF8" }}
     >
       {/* Header */}
@@ -293,7 +293,7 @@ export function MetroCard() {
       {line.status === "construction" && (
         <div className="px-5 py-3" style={{ borderBottom: "1px solid rgba(45,80,22,0.06)" }}>
           <div
-            className="text-xs px-3 py-2.5 rounded-xl leading-relaxed"
+            className="text-xs px-3 py-2.5 rounded leading-relaxed"
             style={{ background: "rgba(107,114,128,0.07)", color: "#5C5C5C" }}
           >
             🚧 Under construction. When complete: {line.connects.toLowerCase()}

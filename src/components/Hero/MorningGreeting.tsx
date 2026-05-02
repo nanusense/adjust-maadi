@@ -82,7 +82,7 @@ export function MorningGreeting() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 py-20 gap-8 max-w-5xl mx-auto">
+      <div className="relative z-10 flex flex-col items-start text-left px-8 py-20 gap-8 max-w-5xl mx-auto w-full">
         {/* Current time */}
         {currentTime && (
           <div
@@ -122,7 +122,7 @@ export function MorningGreeting() {
         {isRainy && (
           <div className="fade-up-child stagger-3">
             <div
-              className="glass-warm rounded-2xl px-6 py-3 text-sm font-medium"
+              className="glass-warm rounded px-6 py-3 text-sm font-medium"
               style={{ color: "#2D5016", maxWidth: "400px" }}
             >
               🌧️ Bengaluru rain: the city&apos;s love language, falling freely for all who call this home
@@ -134,7 +134,7 @@ export function MorningGreeting() {
         <div className="fade-up-child stagger-4">
           {loading ? (
             <div
-              className="glass-warm rounded-2xl p-5 max-w-sm w-full animate-pulse"
+              className="glass-warm rounded p-5 max-w-sm w-full animate-pulse"
               style={{ height: "180px" }}
             />
           ) : weather ? (
@@ -149,7 +149,7 @@ export function MorningGreeting() {
 
         {/* Hero intro + scroll hint */}
         <div
-          className="fade-up-child stagger-5 glass-warm rounded-2xl px-6 py-5 max-w-sm text-center"
+          className="fade-up-child stagger-5 glass-warm rounded px-6 py-5 max-w-sm text-left"
           style={{
             background: isRainy ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.45)",
             border: isRainy ? "1px solid rgba(255,255,255,0.15)" : "1px solid rgba(198,124,42,0.15)",
@@ -162,7 +162,7 @@ export function MorningGreeting() {
             Bengaluru is chaotic, complicated, and occasionally infuriating.
             It is also extraordinary. This is a small record of what makes it worth it.
           </p>
-          <div className="mt-4 flex flex-col items-center gap-1.5">
+          <div className="mt-4 flex flex-col items-start gap-1.5">
             <span
               className="text-xs tracking-widest uppercase"
               style={{ color: isRainy ? "rgba(255,255,255,0.45)" : "rgba(45,80,22,0.4)" }}

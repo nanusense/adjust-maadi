@@ -56,9 +56,9 @@ export function WordOfTheDay() {
 
         {/* Main card */}
         <div
-          className="relative rounded-3xl overflow-hidden shadow-2xl"
+          className="relative rounded overflow-hidden shadow-md"
           style={{
-            background: `linear-gradient(135deg, ${color} 0%, ${color}dd 40%, #1a2e0a 100%)`,
+            background: color,
             minHeight: "420px",
           }}
         >
@@ -84,14 +84,14 @@ export function WordOfTheDay() {
             {/* Category badge */}
             <div className="mb-6">
               <span
-                className="inline-flex items-center gap-2 text-xs tracking-widest uppercase px-4 py-1.5 rounded-full"
+                className="inline-flex items-center gap-2 text-xs tracking-widest uppercase px-4 py-1.5 rounded"
                 style={{
                   background: "rgba(255, 255, 255, 0.15)",
                   color: "rgba(255, 255, 255, 0.9)",
                   border: "1px solid rgba(255, 255, 255, 0.2)",
                 }}
               >
-                {emoji} {category}
+                {category}
               </span>
             </div>
 
@@ -132,7 +132,7 @@ export function WordOfTheDay() {
 
             {/* Example sentence */}
             <div
-              className="max-w-lg rounded-2xl p-5 mb-6"
+              className="max-w-lg rounded p-5 mb-6"
               style={{
                 background: "rgba(255, 255, 255, 0.08)",
                 border: "1px solid rgba(255, 255, 255, 0.12)",

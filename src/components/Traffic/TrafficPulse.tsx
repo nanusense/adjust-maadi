@@ -61,11 +61,11 @@ export function TrafficPulse() {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden shadow-lg"
+      className="rounded overflow-hidden shadow-lg"
       style={{ border: "1px solid rgba(45,80,22,0.1)", background: "#FEFCF8" }}
     >
       {/* Header */}
-      <div className="px-5 py-4" style={{ background: "linear-gradient(135deg, #1a1a2e 0%, #2d1b4e 100%)" }}>
+      <div className="px-5 py-4" style={{ background: "#1a1a2e" }}>
         <div className="flex items-center justify-between mb-3">
           <div>
             <div className="flex items-center gap-1.5 text-xs tracking-widest uppercase mb-0.5" style={{ color: "#D4A843" }}>
@@ -81,7 +81,7 @@ export function TrafficPulse() {
             <h3 className="font-lora text-xl font-bold text-white">Namma Traffic</h3>
           </div>
           <div
-            className="text-right px-3 py-2 rounded-xl"
+            className="text-right px-3 py-2 rounded"
             style={{ background: "rgba(255,255,255,0.06)" }}
           >
             <div className="text-2xl">{currentTip.icon}</div>
@@ -151,7 +151,7 @@ export function TrafficPulse() {
               {isSelected && (
                 <div className="px-5 pb-4 space-y-2.5" style={{ background: "rgba(45,80,22,0.025)" }}>
                   {liveData && (
-                    <div className="flex items-center gap-2 text-xs py-2 px-3 rounded-xl mb-1"
+                    <div className="flex items-center gap-2 text-xs py-2 px-3 rounded mb-1"
                       style={{ background: "rgba(45,80,22,0.05)", color: "#2D5016" }}>
                       <span>🚗 Speed now: <strong>{liveData.currentSpeed} km/h</strong></span>
                     </div>

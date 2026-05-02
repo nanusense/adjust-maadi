@@ -28,7 +28,7 @@ export function NostalgiaSection() {
       {/* Full-width photograph */}
       <div className="max-w-6xl mx-auto px-4">
         <div
-          className="relative w-full overflow-hidden rounded-2xl"
+          className="relative w-full overflow-hidden rounded"
           style={{ height: "clamp(320px, 55vw, 580px)" }}
         >
           <Image

@@ -69,7 +69,7 @@ export function LiveCounter({ stat }: LiveCounterProps) {
   return (
     <div
       ref={ref}
-      className="rounded-2xl p-5 transition-all duration-300 hover:scale-[1.02] cursor-default"
+      className="rounded p-5 transition-all duration-300 hover:scale-[1.02] cursor-default"
       style={{
         background: `${color}12`,
         border: `1px solid ${color}25`,

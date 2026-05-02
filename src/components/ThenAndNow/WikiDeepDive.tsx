@@ -31,7 +31,7 @@ export function WikiDeepDive() {
   if (loading) {
     return (
       <div
-        className="rounded-2xl p-6 animate-pulse shadow-lg"
+        className="rounded p-6 animate-pulse shadow-lg"
         style={{ background: "#F0E6C8", minHeight: "250px" }}
       />
     );
@@ -43,9 +43,9 @@ export function WikiDeepDive() {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden shadow-xl"
+      className="rounded overflow-hidden shadow-xl"
       style={{
-        background: "linear-gradient(135deg, #FBF5E6 0%, #F0E6C8 100%)",
+        background: "#F0E6C8",
         border: "1px solid rgba(198, 124, 42, 0.15)",
       }}
     >
@@ -60,7 +60,6 @@ export function WikiDeepDive() {
               className="object-cover"
               unoptimized
             />
-            <div className="absolute inset-0 md:bg-gradient-to-r md:from-transparent md:to-[#FBF5E6]/30" />
           </div>
         )}
 

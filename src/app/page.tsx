@@ -109,16 +109,13 @@ export default function Home() {
       </section>
 
       {/* ── 3. Bengaluru News ── */}
-      <Rule />
-      <div id="news"><NewsSection /></div>
+      <div id="news" style={{ backgroundColor: "#FFFFFF" }}><NewsSection /></div>
 
       {/* ── 4. Events ── */}
       <div id="events"><EventsSection /></div>
 
-      <Rule />
-
       {/* ── 5. Garden City ── */}
-      <section id="nature" className="py-20 px-4">
+      <section id="nature" className="py-20 px-4" style={{ backgroundColor: "#E8F2EA" }}>
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <Label>Garden City</Label>
@@ -137,10 +134,8 @@ export default function Home() {
         </div>
       </section>
 
-      <Rule />
-
       {/* ── Kannada Word ── */}
-      <div id="kannada"><WordOfTheDay /></div>
+      <div id="kannada" style={{ backgroundColor: "#F5EDD5" }}><WordOfTheDay /></div>
 
       {/* ── Built Here ── */}
       <section id="tech" className="py-20 px-4" style={{ backgroundColor: "#F5EDD5" }}>
@@ -162,7 +157,7 @@ export default function Home() {
       </section>
 
       {/* ── History & Famous People ── */}
-      <section id="history" className="py-20 px-4">
+      <section id="history" className="py-20 px-4" style={{ backgroundColor: "#EDEEF4" }}>
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div>

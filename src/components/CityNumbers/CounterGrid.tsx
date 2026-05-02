@@ -7,7 +7,7 @@ export function CounterGrid() {
   return (
     <section
       className="py-20 px-4"
-      style={{ background: "linear-gradient(135deg, #1a2e0a 0%, #2D5016 50%, #1a2e0a 100%)" }}
+      style={{ background: "#2D5016" }}
     >
       <div className="max-w-6xl mx-auto">
         {/* Section header */}

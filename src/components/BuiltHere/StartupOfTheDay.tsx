@@ -22,14 +22,13 @@ const categoryEmoji: Record<string, string> = {
 
 export function StartupOfTheDay() {
   const startup = useDailyRotation(BANGALORE_STARTUPS);
-  const emoji = categoryEmoji[startup.category] || "🚀";
 
   return (
     <div
-      className="rounded-2xl overflow-hidden shadow-xl"
+      className="rounded overflow-hidden shadow-sm"
       style={{
-        background: `linear-gradient(135deg, ${startup.color}20 0%, ${startup.color}10 100%)`,
-        border: `1px solid ${startup.color}30`,
+        background: `${startup.color}0d`,
+        border: `1px solid ${startup.color}28`,
       }}
     >
       {/* Header */}
@@ -43,7 +42,7 @@ export function StartupOfTheDay() {
               className="text-xs tracking-widest uppercase mb-2 flex items-center gap-2"
               style={{ color: startup.color, opacity: 0.8 }}
             >
-              {emoji} {startup.category}
+              {startup.category}
             </div>
             <h3
               className="font-lora text-3xl md:text-4xl font-bold leading-tight"

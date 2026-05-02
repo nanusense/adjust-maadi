@@ -8,9 +8,9 @@ export function PersonOfTheDay() {
 
   return (
     <div
-      className="rounded-2xl overflow-hidden shadow-xl"
+      className="rounded overflow-hidden shadow-xl"
       style={{
-        background: "linear-gradient(135deg, #FBF5E6 0%, #F5EDD5 100%)",
+        background: "#F5EDD5",
         border: "1px solid rgba(198, 124, 42, 0.15)",
       }}
     >
@@ -18,9 +18,9 @@ export function PersonOfTheDay() {
       <div className="flex gap-5 p-6 pb-4">
         {/* Initials avatar */}
         <div
-          className="flex-shrink-0 w-24 h-24 rounded-2xl flex items-center justify-center shadow-md"
+          className="flex-shrink-0 w-24 h-24 rounded flex items-center justify-center shadow-md"
           style={{
-            background: `linear-gradient(135deg, ${person.color}, ${person.color}cc)`,
+            background: person.color,
             border: "3px solid rgba(212, 168, 67, 0.3)",
           }}
         >
@@ -50,7 +50,7 @@ export function PersonOfTheDay() {
 
       {/* Known for */}
       <div
-        className="mx-6 mb-4 p-4 rounded-xl"
+        className="mx-6 mb-4 p-4 rounded"
         style={{ background: "rgba(45, 80, 22, 0.05)" }}
       >
         <p className="text-sm leading-relaxed" style={{ color: "#5C3A1E" }}>

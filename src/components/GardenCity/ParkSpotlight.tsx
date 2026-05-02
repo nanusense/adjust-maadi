@@ -63,7 +63,7 @@ export function ParkSpotlight() {
           {park.fact}
         </p>
         <div
-          className="flex items-start gap-2 text-xs p-3 rounded-xl"
+          className="flex items-start gap-2 text-xs p-3 rounded"
           style={{ background: "rgba(45, 80, 22, 0.06)", color: "#2D5016" }}
         >
           <Clock3 size={13} className="mt-0.5 flex-shrink-0" />

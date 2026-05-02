@@ -80,7 +80,7 @@ export function EventsSection() {
             {[...Array(4)].map((_, i) => (
               <div
                 key={i}
-                className="animate-pulse rounded-2xl p-5 h-28"
+                className="animate-pulse rounded p-5 h-28"
                 style={{ background: "rgba(45,80,22,0.05)" }}
               />
             ))}
@@ -103,7 +103,7 @@ export function EventsSection() {
                   href={event.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative rounded-2xl p-5 flex flex-col gap-2 transition-all hover:-translate-y-0.5 hover:shadow-md"
+                  className="group relative rounded p-5 flex flex-col gap-2 transition-all hover:-translate-y-0.5 hover:shadow-md"
                   style={{
                     background: "rgba(255,255,255,0.7)",
                     border: day === "Today"

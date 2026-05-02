@@ -8,9 +8,9 @@ export function HistoricalMoment() {
 
   return (
     <div
-      className="rounded-2xl p-6 shadow-lg overflow-hidden relative"
+      className="rounded p-6 shadow-lg overflow-hidden relative"
       style={{
-        background: "linear-gradient(135deg, #FBF5E6 0%, #F0E6C8 100%)",
+        background: "#F0E6C8",
         border: "1px solid rgba(198, 124, 42, 0.2)",
       }}
     >
@@ -38,7 +38,7 @@ export function HistoricalMoment() {
 
         <div className="flex items-start gap-3 mb-4">
           <div
-            className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center text-2xl"
+            className="flex-shrink-0 w-12 h-12 rounded flex items-center justify-center text-2xl"
             style={{ background: "rgba(45, 80, 22, 0.08)" }}
           >
             {event.emoji || "🏛️"}

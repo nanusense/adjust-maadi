@@ -9,7 +9,7 @@ export function LakeOfTheDay() {
   const lake = useDailyRotation(BANGALORE_LAKES);
 
   return (
-    <div className="rounded-2xl overflow-hidden shadow-xl group">
+    <div className="rounded overflow-hidden shadow-xl group">
       {/* Photo */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <Image
@@ -62,7 +62,7 @@ export function LakeOfTheDay() {
       </div>
 
       {/* Info */}
-      <div style={{ background: "linear-gradient(135deg, #2D5016, #3D6B20)", padding: "1.25rem 1.5rem" }}>
+      <div style={{ background: "#2D5016", padding: "1.25rem 1.5rem" }}>
         <p className="text-sm leading-relaxed mb-3" style={{ color: "rgba(251, 245, 230, 0.9)" }}>
           {lake.fact}
         </p>

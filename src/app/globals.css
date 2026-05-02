@@ -50,15 +50,15 @@
   }
 
   .warm-card {
-    background: linear-gradient(135deg, #FBF5E6 0%, #F5EDD5 100%);
-    border: 1px solid rgba(198, 124, 42, 0.15);
-    border-radius: 1rem;
+    background: #F5EDD5;
+    border: 1px solid rgba(198, 124, 42, 0.2);
+    border-radius: 4px;
   }
 
   .forest-card {
-    background: linear-gradient(135deg, #2D5016 0%, #3D6B20 100%);
+    background: #2D5016;
     color: #FBF5E6;
-    border-radius: 1rem;
+    border-radius: 4px;
   }
 
   .glass-warm {

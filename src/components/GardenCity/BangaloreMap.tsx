@@ -100,11 +100,11 @@ export function BangaloreMap() {
   }, [mounted]);
 
   return (
-    <div className="rounded-2xl overflow-hidden shadow-xl" style={{ border: "1px solid rgba(45,80,22,0.12)" }}>
+    <div className="rounded overflow-hidden shadow-xl" style={{ border: "1px solid rgba(45,80,22,0.12)" }}>
       {/* Header */}
       <div
         className="px-5 py-4 flex items-center justify-between"
-        style={{ background: "linear-gradient(135deg, #2D5016, #3D6B20)" }}
+        style={{ background: "#2D5016" }}
       >
         <div>
           <div className="text-xs tracking-widest uppercase mb-0.5" style={{ color: "#D4A843" }}>

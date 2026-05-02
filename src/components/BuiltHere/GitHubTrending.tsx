@@ -57,7 +57,7 @@ export function GitHubTrending() {
       {loading ? (
         <div className="space-y-3">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-16 rounded-xl animate-pulse" style={{ background: "rgba(45, 80, 22, 0.05)" }} />
+            <div key={i} className="h-16 rounded animate-pulse" style={{ background: "rgba(45, 80, 22, 0.05)" }} />
           ))}
         </div>
       ) : (
@@ -68,7 +68,7 @@ export function GitHubTrending() {
               href={repo.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-start gap-3 p-3 rounded-xl transition-all hover:scale-[1.01] group"
+              className="flex items-start gap-3 p-3 rounded transition-all hover:scale-[1.01] group"
               style={{
                 background: "rgba(45, 80, 22, 0.04)",
                 border: "1px solid rgba(45, 80, 22, 0.08)",
