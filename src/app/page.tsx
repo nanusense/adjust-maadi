@@ -57,13 +57,13 @@ function LabelDark({ children }: { children: React.ReactNode }) {
 
 export default function Home() {
   return (
-    <main style={{ backgroundColor: "#FBF5E6" }}>
+    <main style={{ backgroundColor: "#F6F6F4" }}>
 
       {/* ── Nav ── */}
       <nav
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4"
         style={{
-          background: "rgba(251, 245, 230, 0.88)",
+          background: "rgba(246, 246, 244, 0.92)",
           backdropFilter: "blur(14px)",
           WebkitBackdropFilter: "blur(14px)",
           borderBottom: "1px solid rgba(198, 124, 42, 0.1)",
@@ -94,7 +94,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <LabelDark>Namma Traffic</LabelDark>
-            <h2 className="font-lora text-4xl md:text-5xl" style={{ color: "#F5EDD5" }}>
+            <h2 className="font-lora text-4xl md:text-5xl" style={{ color: "#FFFFFF" }}>
               Beat the Rush
             </h2>
             <p className="mt-2 text-sm max-w-lg" style={{ color: "rgba(255,255,255,0.45)" }}>
@@ -135,10 +135,10 @@ export default function Home() {
       </section>
 
       {/* ── Kannada Word ── */}
-      <div id="kannada" style={{ backgroundColor: "#F5EDD5" }}><WordOfTheDay /></div>
+      <div id="kannada" style={{ backgroundColor: "#EEF1F8" }}><WordOfTheDay /></div>
 
       {/* ── Built Here ── */}
-      <section id="tech" className="py-20 px-4" style={{ backgroundColor: "#F5EDD5" }}>
+      <section id="tech" className="py-20 px-4" style={{ backgroundColor: "#F0F2F0" }}>
         <div className="max-w-6xl mx-auto">
           <div className="mb-12">
             <Label>Built in Bengaluru</Label>

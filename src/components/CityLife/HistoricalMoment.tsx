@@ -10,8 +10,8 @@ export function HistoricalMoment() {
     <div
       className="rounded p-6 shadow-lg overflow-hidden relative"
       style={{
-        background: "#F0E6C8",
-        border: "1px solid rgba(198, 124, 42, 0.2)",
+        background: "#FFFFFF",
+        border: "1px solid rgba(198, 124, 42, 0.25)",
       }}
     >
       {/* Decorative year */}

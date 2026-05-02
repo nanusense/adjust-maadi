@@ -2,14 +2,14 @@
 
 @layer base {
   :root {
-    --bg-warm: #FBF5E6;
+    --bg-warm: #F6F6F4;
     --forest: #2D5016;
     --forest-light: #4A7A28;
     --amber: #C67C2A;
     --gold: #D4A843;
     --bark: #5C3A1E;
-    --cream: #FBF5E6;
-    --parchment: #F0E6C8;
+    --cream: #F6F6F4;
+    --parchment: #F0EDE8;
   }
 
   html {
@@ -17,7 +17,7 @@
   }
 
   body {
-    background-color: #FBF5E6;
+    background-color: #F6F6F4;
     color: #2D2D2D;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -50,8 +50,8 @@
   }
 
   .warm-card {
-    background: #F5EDD5;
-    border: 1px solid rgba(198, 124, 42, 0.2);
+    background: #FFFFFF;
+    border: 1px solid rgba(198, 124, 42, 0.18);
     border-radius: 4px;
   }
 
@@ -62,7 +62,7 @@
   }
 
   .glass-warm {
-    background: rgba(251, 245, 230, 0.85);
+    background: rgba(246, 246, 244, 0.88);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
@@ -139,7 +139,7 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FBF5E6;
+  background: #F6F6F4;
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(198, 124, 42, 0.4);

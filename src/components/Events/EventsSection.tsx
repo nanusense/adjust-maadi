@@ -46,7 +46,7 @@ export function EventsSection() {
   const { events, loading } = useEvents();
 
   return (
-    <section className="py-20 px-4" style={{ backgroundColor: "#F5EDD5" }}>
+    <section className="py-20 px-4" style={{ backgroundColor: "#F6F6F4" }}>
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="mb-10">

@@ -32,7 +32,7 @@ export function WikiDeepDive() {
     return (
       <div
         className="rounded p-6 animate-pulse shadow-lg"
-        style={{ background: "#F0E6C8", minHeight: "250px" }}
+        style={{ background: "#F8F8F7", minHeight: "250px" }}
       />
     );
   }
@@ -45,7 +45,7 @@ export function WikiDeepDive() {
     <div
       className="rounded overflow-hidden shadow-xl"
       style={{
-        background: "#F0E6C8",
+        background: "#F8F8F7",
         border: "1px solid rgba(198, 124, 42, 0.15)",
       }}
     >

@@ -33,7 +33,7 @@ export const FAMOUS_BANGALOREANS: FamousPerson[] = [
     knownFor: "Co-founded Flipkart at 25, sold it to Walmart for $16 billion: India's largest tech exit ever.",
     quote: "India is a country full of opportunities. We've only scratched the surface.",
     initials: "SB",
-    color: "#F74F00",
+    color: "#C4560E",
     era: "Contemporary",
   },
   {
@@ -78,7 +78,7 @@ export const FAMOUS_BANGALOREANS: FamousPerson[] = [
     knownFor: "Built Wipro into a global tech company, then gave away ₹1 lakh crore to education causes.",
     quote: "The simplest questions are the most profound.",
     initials: "AP",
-    color: "#341557",
+    color: "#6D28D9",
     era: "Contemporary",
   },
   {

@@ -17,7 +17,7 @@ export function NostalgiaSection() {
             Haḷe Bengaḷūru
           </span>
         </div>
-        <h2 className="font-lora text-4xl md:text-5xl" style={{ color: "#F5EDD5" }}>
+        <h2 className="font-lora text-4xl md:text-5xl" style={{ color: "#F0EDE8" }}>
           Before It Became a Startup
         </h2>
         <p className="mt-2 text-sm" style={{ color: "rgba(212,168,67,0.55)" }}>

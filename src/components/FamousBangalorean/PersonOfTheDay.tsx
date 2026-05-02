@@ -10,23 +10,23 @@ export function PersonOfTheDay() {
     <div
       className="rounded overflow-hidden shadow-xl"
       style={{
-        background: "#F5EDD5",
-        border: "1px solid rgba(198, 124, 42, 0.15)",
+        background: "#FFFFFF",
+        border: "1px solid rgba(198, 124, 42, 0.18)",
       }}
     >
       {/* Photo + basic info */}
       <div className="flex gap-5 p-6 pb-4">
         {/* Initials avatar */}
         <div
-          className="flex-shrink-0 w-24 h-24 rounded flex items-center justify-center shadow-md"
+          className="flex-shrink-0 w-24 h-24 rounded flex items-center justify-center"
           style={{
-            background: person.color,
-            border: "3px solid rgba(212, 168, 67, 0.3)",
+            background: `${person.color}20`,
+            border: `2px solid ${person.color}50`,
           }}
         >
           <span
-            className="font-lora font-bold text-white"
-            style={{ fontSize: "2rem", lineHeight: 1 }}
+            className="font-lora font-bold"
+            style={{ fontSize: "2rem", lineHeight: 1, color: person.color }}
           >
             {person.initials}
           </span>

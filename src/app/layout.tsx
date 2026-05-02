@@ -87,7 +87,7 @@ export default function RootLayout({
       </Script>
       <body
         className={`${inter.className} antialiased`}
-        style={{ backgroundColor: "#FBF5E6" }}
+        style={{ backgroundColor: "#F6F6F4" }}
       >
         {children}
       </body>

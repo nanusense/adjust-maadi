@@ -155,7 +155,7 @@ export function BangaloreMap() {
       <div
         style={{
           minHeight: "72px",
-          background: "#FBF5E6",
+          background: "#FFFFFF",
           borderTop: "1px solid rgba(45,80,22,0.08)",
           padding: "1rem 1.25rem",
         }}
