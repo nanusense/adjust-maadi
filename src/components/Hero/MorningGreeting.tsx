@@ -148,24 +148,31 @@ export function MorningGreeting() {
         </div>
 
         {/* Hero intro + scroll hint */}
-        <div
-          className="fade-up-child stagger-5 glass-warm rounded px-6 py-5 max-w-sm text-left"
-          style={{
-            background: isRainy ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.45)",
-            border: isRainy ? "1px solid rgba(255,255,255,0.15)" : "1px solid rgba(198,124,42,0.15)",
-          }}
-        >
-          <p
-            className="font-lora italic text-sm leading-relaxed"
-            style={{ color: isRainy ? "rgba(255,255,255,0.85)" : "rgba(45,80,22,0.7)" }}
+        <div className="fade-up-child stagger-5 max-w-sm text-left">
+          <div
+            style={{
+              borderLeft: `2px solid ${isRainy ? "rgba(255,255,255,0.35)" : "#C67C2A"}`,
+              paddingLeft: "0.875rem",
+            }}
           >
-            Bengaluru is chaotic, complicated, and occasionally infuriating.
-            It is also extraordinary. This is a small record of what makes it worth it.
-          </p>
-          <div className="mt-4 flex flex-col items-start gap-1.5">
+            <p
+              className="font-lora text-base font-semibold mb-2"
+              style={{ color: isRainy ? "rgba(255,255,255,0.9)" : "#2D5016" }}
+            >
+              Hello, maga.
+            </p>
+            <p
+              className="text-sm leading-relaxed"
+              style={{ color: isRainy ? "rgba(255,255,255,0.75)" : "rgba(45,80,22,0.7)" }}
+            >
+              The traffic is terrible. The weather is perfect. The rest is complicated.
+              This is for everyone who complains about Bengaluru and still can&apos;t imagine living anywhere else.
+            </p>
+          </div>
+          <div className="mt-4 flex flex-col items-start gap-1.5" style={{ paddingLeft: "0.875rem" }}>
             <span
               className="text-xs tracking-widest uppercase"
-              style={{ color: isRainy ? "rgba(255,255,255,0.45)" : "rgba(45,80,22,0.4)" }}
+              style={{ color: isRainy ? "rgba(255,255,255,0.4)" : "rgba(45,80,22,0.35)" }}
             >
               Scroll to explore
             </span>
@@ -173,8 +180,8 @@ export function MorningGreeting() {
               className="w-px h-6"
               style={{
                 background: isRainy
-                  ? "linear-gradient(to bottom, rgba(255,255,255,0.4), transparent)"
-                  : "linear-gradient(to bottom, rgba(45,80,22,0.3), transparent)",
+                  ? "linear-gradient(to bottom, rgba(255,255,255,0.35), transparent)"
+                  : "linear-gradient(to bottom, rgba(45,80,22,0.25), transparent)",
               }}
             />
           </div>

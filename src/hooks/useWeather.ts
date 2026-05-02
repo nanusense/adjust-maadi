@@ -2,6 +2,13 @@
 
 import { useState, useEffect } from "react";
 
+export interface HourForecast {
+  hour: string;       // e.g. "3PM"
+  temp: number;       // °C
+  rainChance: number; // 0–100
+  condition: string;  // "Clear", "Rain", etc.
+}
+
 export interface WeatherData {
   temp: number;
   feelsLike: number;
@@ -9,11 +16,15 @@ export interface WeatherData {
   description: string;
   humidity: number;
   windSpeed: number;
-  cloudCover: number;    // %
-  aqi: number | null;    // 0–500 Indian CPCB/WAQI scale
-  pm25: number | null;   // µg/m³
+  cloudCover: number;         // %
+  aqi: number | null;         // 0–500 Indian CPCB/WAQI scale
+  pm25: number | null;        // µg/m³
   dominentpol: string | null; // e.g. "pm25"
   uvIndex: number | null;
+  tempMax: number | null;     // today's high °C
+  tempMin: number | null;     // today's low °C
+  rainChance: number | null;  // today's peak rain probability 0–100
+  hourlyForecast: HourForecast[]; // next 5 hours
   icon: string;
   isRainy: boolean;
   isCloudy: boolean;
@@ -57,6 +68,10 @@ export function useWeather() {
           pm25: data.pm25 ?? null,
           dominentpol: data.dominentpol ?? null,
           uvIndex: data.uvIndex ?? null,
+          tempMax: data.tempMax ?? null,
+          tempMin: data.tempMin ?? null,
+          rainChance: data.rainChance ?? null,
+          hourlyForecast: data.hourlyForecast ?? [],
           icon: data.weather?.[0]?.icon || "01d",
           isRainy,
           isCloudy,
@@ -67,6 +82,7 @@ export function useWeather() {
           temp: 24, feelsLike: 24, condition: "Clear", description: "clear sky",
           humidity: 65, windSpeed: 12, cloudCover: 20,
           aqi: null, pm25: null, dominentpol: null, uvIndex: null,
+          tempMax: null, tempMin: null, rainChance: null, hourlyForecast: [],
           icon: "01d", isRainy: false, isCloudy: false,
           positiveMessage: "A beautiful day in Bengaluru.",
         });

@@ -64,7 +64,9 @@ export async function GET() {
       fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}` +
         `&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code,cloud_cover` +
-        `&hourly=uv_index&wind_speed_unit=kmh&timezone=Asia%2FKolkata&forecast_days=1`,
+        `&hourly=uv_index,precipitation_probability,temperature_2m,weather_code` +
+        `&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max` +
+        `&wind_speed_unit=kmh&timezone=Asia%2FKolkata&forecast_days=2`,
         { next: { revalidate: 600 } }
       ),
       waqiToken
@@ -89,6 +91,30 @@ export async function GET() {
     const currentHourIndex = new Date().getHours();
     const uvIndex = omData.hourly?.uv_index?.[currentHourIndex] ?? null;
 
+    // Daily high/low + peak rain probability for today (index 0)
+    const tempMax   = omData.daily?.temperature_2m_max?.[0] != null ? Math.round(omData.daily.temperature_2m_max[0]) : null;
+    const tempMin   = omData.daily?.temperature_2m_min?.[0] != null ? Math.round(omData.daily.temperature_2m_min[0]) : null;
+    const rainChance = omData.daily?.precipitation_probability_max?.[0] ?? null;
+
+    // Hourly forecast: next 5 hours (wraps into tomorrow with forecast_days=2)
+    function hourLabel(index: number): string {
+      const h = index % 24;
+      if (h === 0) return "12AM";
+      if (h < 12)  return `${h}AM`;
+      if (h === 12) return "12PM";
+      return `${h - 12}PM`;
+    }
+    const hourlyForecast = Array.from({ length: 5 }, (_, i) => {
+      const idx = currentHourIndex + 1 + i;
+      const wmoCode = omData.hourly?.weather_code?.[idx] ?? 0;
+      return {
+        hour:       hourLabel(idx),
+        temp:       Math.round(omData.hourly?.temperature_2m?.[idx] ?? 24),
+        rainChance: omData.hourly?.precipitation_probability?.[idx] ?? 0,
+        condition:  wmoCondition(wmoCode).condition,
+      };
+    });
+
     // WAQI AQI (Indian CPCB 0–500 scale)
     const aqiValue    = waqiData?.status === "ok" ? (waqiData.data?.aqi    ?? null) : null;
     const dominentpol = waqiData?.status === "ok" ? (waqiData.data?.dominentpol ?? null) : null;
@@ -107,6 +133,10 @@ export async function GET() {
       pm25,
       dominentpol,
       uvIndex,
+      tempMax,
+      tempMin,
+      rainChance,
+      hourlyForecast,
     });
   } catch (error) {
     console.error("Weather fetch error:", error);

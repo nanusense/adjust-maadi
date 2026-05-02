@@ -1,6 +1,6 @@
 "use client";
 
-import { Droplets, Wind, Thermometer, Sunrise, Sunset, Sparkles, Cloud, Info } from "lucide-react";
+import { Droplets, Wind, Thermometer, Sunrise, Sunset, Sparkles, Cloud, Info, CloudRain } from "lucide-react";
 import { WeatherData } from "@/hooks/useWeather";
 
 interface WeatherCardProps {
@@ -71,6 +71,13 @@ export function WeatherCard({ weather, sunrise, sunset, goldenHour }: WeatherCar
             </span>
             <span className="text-2xl font-semibold" style={{ color: "#C67C2A" }}>°C</span>
           </div>
+          {(weather.tempMax != null && weather.tempMin != null) && (
+            <div className="flex items-center gap-1 mt-0.5 text-xs" style={{ color: "#8B7355" }}>
+              <span>↑{weather.tempMax}°</span>
+              <span style={{ color: "#D1D5DB" }}>·</span>
+              <span>↓{weather.tempMin}°</span>
+            </div>
+          )}
           <p className="font-lora text-sm italic mt-1 capitalize" style={{ color: "#5C3A1E" }}>
             {weather.description}
           </p>
@@ -101,14 +108,27 @@ export function WeatherCard({ weather, sunrise, sunset, goldenHour }: WeatherCar
         </div>
       </div>
 
-      {/* Stats row 2 — cloud cover, AQI, UV */}
-      <div className="flex flex-wrap gap-2 text-xs mb-4">
+      {/* Stats row 2 — cloud cover, rain chance, AQI, UV */}
+      <div className="flex flex-wrap gap-2 text-xs mb-3">
         {/* Cloud cover */}
         <div className="flex items-center gap-1.5" style={{ color: "#5C3A1E" }}>
           <Cloud size={13} style={{ color: "#6B7280" }} />
           <span>{cloudLabel(weather.cloudCover)}</span>
           <span style={{ color: "#9CA3AF" }}>({weather.cloudCover}%)</span>
         </div>
+
+        {/* Rain probability */}
+        {weather.rainChance != null && (
+          <div className="flex items-center gap-1 px-2 py-0.5 rounded-full font-medium"
+            style={{
+              background: weather.rainChance >= 50 ? "rgba(59,130,246,0.12)" : "rgba(59,130,246,0.06)",
+              color: weather.rainChance >= 50 ? "#2563EB" : "#6B7280",
+            }}
+          >
+            <CloudRain size={11} />
+            <span>{weather.rainChance}% rain today</span>
+          </div>
+        )}
 
         {/* AQI badge */}
         {aqi && weather.aqi != null && (
@@ -132,6 +152,36 @@ export function WeatherCard({ weather, sunrise, sunset, goldenHour }: WeatherCar
           </span>
         )}
       </div>
+
+      {/* Hourly forecast strip */}
+      {weather.hourlyForecast.length > 0 && (
+        <div
+          className="border-t mb-3 pt-3 overflow-x-auto"
+          style={{ borderColor: "rgba(198,124,42,0.15)" }}
+        >
+          <div className="flex gap-1 min-w-max">
+            {weather.hourlyForecast.map((h) => (
+              <div
+                key={h.hour}
+                className="flex flex-col items-center gap-0.5 px-2 py-1.5 rounded"
+                style={{ minWidth: "48px", background: "rgba(45,80,22,0.04)" }}
+              >
+                <span className="text-xs" style={{ color: "#8B7355" }}>{h.hour}</span>
+                <span className="text-base leading-none">
+                  {conditionIcon[h.condition] ?? "🌤️"}
+                </span>
+                <span className="text-xs font-medium" style={{ color: "#2D5016" }}>{h.temp}°</span>
+                <span
+                  className="text-xs"
+                  style={{ color: "#3B82F6", visibility: h.rainChance >= 20 ? "visible" : "hidden" }}
+                >
+                  {h.rainChance}%
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Sun times */}
       {(sunrise || sunset || goldenHour) && (
