@@ -1,0 +1,133 @@
+export interface Darshini {
+  name: string;
+  kannada: string;
+  neighbourhood: string;
+  established: number;
+  orderThis: string;       // the one thing to order
+  tagline: string;         // what makes it legendary
+  fact: string;            // historical / fun fact
+  emoji: string;           // food emoji for the decorative panel
+}
+
+export const BANGALORE_DARSHINIS: Darshini[] = [
+  {
+    name: "Vidyarthi Bhavan",
+    kannada: "ವಿದ್ಯಾರ್ಥಿ ಭವನ",
+    neighbourhood: "Basavanagudi",
+    established: 1943,
+    orderThis: "Masala Dosa",
+    tagline: "The queue outside tells you everything you need to know.",
+    fact: "Opened to serve students from the nearby National College, it has been frying the same masala dosa recipe for over 80 years. The ghee-roasted exterior and potato-onion masala have not changed since 1943.",
+    emoji: "🍽️",
+  },
+  {
+    name: "CTR (Shri Sagar)",
+    kannada: "ಶ್ರೀ ಸಾಗರ್",
+    neighbourhood: "Malleshwaram",
+    established: 1920,
+    orderThis: "Benne Dosa",
+    tagline: "Butter so generous it pools on the plate.",
+    fact: "Originally called Central Tiffin Room, CTR has been a Malleshwaram institution for over a century. Its benne (butter) dosa, a thicker crispier dosa drenched in white butter, has made it a pilgrimage for Bengalureans.",
+    emoji: "🧈",
+  },
+  {
+    name: "MTR (Mavalli Tiffin Room)",
+    kannada: "ಮಾವಳ್ಳಿ ಟಿಫಿನ್ ರೂಂ",
+    neighbourhood: "Lalbagh Road",
+    established: 1924,
+    orderThis: "Rava Idli",
+    tagline: "They didn't just serve idli. They invented one.",
+    fact: "In 1943, when rice was rationed during WWII, MTR founder Yajnanarayana Maiya improvised with semolina and created the Rava Idli. It was born from necessity and became a Bengaluru staple. MTR is now 100 years old.",
+    emoji: "🥣",
+  },
+  {
+    name: "Brahmin's Coffee Bar",
+    kannada: "ಬ್ರಾಹ್ಮಿನ್ ಕಾಫಿ ಬಾರ್",
+    neighbourhood: "Basavanagudi",
+    established: 1965,
+    orderThis: "Filter Coffee + Thatte Idli",
+    tagline: "The smallest café with the longest memory.",
+    fact: "Run from a tiny two-room space, Brahmin's Coffee Bar has been serving the same thatte idli and filter coffee for nearly 60 years. There are no tables. You take a tumbler and stand.",
+    emoji: "☕",
+  },
+  {
+    name: "Veena Stores",
+    kannada: "ವೀಣಾ ಸ್ಟೋರ್ಸ್",
+    neighbourhood: "Malleshwaram",
+    established: 1936,
+    orderThis: "Filter Coffee",
+    tagline: "Bengaluru's most famous cup of coffee.",
+    fact: "Veena Stores is technically a provision store, but Malleshwaramites have been coming here for filter coffee since 1936. The coffee is served in a traditional steel tumbler and davara, and it's always exactly right.",
+    emoji: "☕",
+  },
+  {
+    name: "SLV Tiffin Room",
+    kannada: "ಎಸ್.ಎಲ್.ವಿ. ಟಿಫಿನ್ ರೂಂ",
+    neighbourhood: "Jayanagar",
+    established: 1938,
+    orderThis: "Set Dosa",
+    tagline: "Soft, light dosas that barely need the chutney.",
+    fact: "SLV has been serving South Bengaluru residents since before independence. The set dosa, three small spongy dosas with coconut chutney and sagu, remains its signature and the reason regulars arrive by 7am.",
+    emoji: "🫓",
+  },
+  {
+    name: "Janatha Hotel",
+    kannada: "ಜನತಾ ಹೋಟೆಲ್",
+    neighbourhood: "Shivajinagar",
+    established: 1942,
+    orderThis: "Khali Dosa with Sagu",
+    tagline: "Old Bengaluru on a steel plate.",
+    fact: "One of the few remaining old-city breakfast joints in central Bengaluru, Janatha Hotel serves the working-class breakfast that built this city. Khali dosa with potato sagu and a cup of strong coffee. No frills, no fanfare.",
+    emoji: "🍛",
+  },
+  {
+    name: "New Krishna Bhavan",
+    kannada: "ನ್ಯೂ ಕೃಷ್ಣ ಭವನ",
+    neighbourhood: "Malleshwaram",
+    established: 1932,
+    orderThis: "Idli with Ghee",
+    tagline: "The idli by which all other idlis are judged.",
+    fact: "New Krishna Bhavan's idlis are famously soft, almost cloud-like, the result of a precise fermentation tradition maintained for nearly a century. A generous pat of ghee on top is non-negotiable.",
+    emoji: "🤍",
+  },
+  {
+    name: "Airlines Hotel",
+    kannada: "ಏರ್‌ಲೈನ್ಸ್ ಹೋಟೆಲ್",
+    neighbourhood: "Lavelle Road",
+    established: 1949,
+    orderThis: "Akki Roti",
+    tagline: "Where old Bengaluru came for a proper breakfast.",
+    fact: "Named for its Lavelle Road location frequented by businessmen and pilots, Airlines Hotel became a gathering spot for the city's mid-century elite. Its akki roti with coconut chutney is still the reason people come.",
+    emoji: "🫓",
+  },
+  {
+    name: "Davangere Benne Dosa",
+    kannada: "ದಾವಣಗೆರೆ ಬೆಣ್ಣೆ ದೋಸೆ",
+    neighbourhood: "Various, city-wide",
+    established: 1970,
+    orderThis: "Benne Dosa",
+    tagline: "A dosa from another city that conquered this one.",
+    fact: "The Davangere-style benne dosa, thicker, crispier, and soaked in more white butter than seems reasonable, migrated to Bengaluru with workers from Davangere district and became one of the city's most beloved street foods.",
+    emoji: "🧈",
+  },
+  {
+    name: "Kamat Upachar",
+    kannada: "ಕಾಮತ್ ಉಪಚಾರ",
+    neighbourhood: "Vasanthnagar",
+    established: 1971,
+    orderThis: "Idli Vada Sambar",
+    tagline: "The breakfast that never disappoints.",
+    fact: "Kamat began as a single Udupi-style restaurant and grew into a beloved small chain, known for consistent idli-vada sambar and a friendly, unhurried atmosphere. A reliable constant in a city of constant change.",
+    emoji: "🍲",
+  },
+  {
+    name: "Udupi Krishna Bhavan",
+    kannada: "ಉಡುಪಿ ಕೃಷ್ಣ ಭವನ",
+    neighbourhood: "Majestic",
+    established: 1955,
+    orderThis: "Masala Dosa + Coconut Chutney",
+    tagline: "The Udupi tradition that built Bengaluru's breakfast culture.",
+    fact: "The Udupi hotel format, clean vegetarian fast food served with sambar and chutneys, was brought to Bengaluru by migrants from coastal Karnataka in the early 1900s. This restaurant is one of the last classic examples.",
+    emoji: "🌿",
+  },
+];

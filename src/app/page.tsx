@@ -2,10 +2,12 @@ import { MorningGreeting } from "@/components/Hero/MorningGreeting";
 import { LakeOfTheDay } from "@/components/GardenCity/LakeOfTheDay";
 import { ParkSpotlight } from "@/components/GardenCity/ParkSpotlight";
 import { BangaloreMap } from "@/components/GardenCity/BangaloreMap";
+import { BirdOfTheDay } from "@/components/GardenCity/BirdOfTheDay";
 import { WordOfTheDay } from "@/components/KannadaWord/WordOfTheDay";
 import { StartupOfTheDay } from "@/components/BuiltHere/StartupOfTheDay";
 import { GitHubTrending } from "@/components/BuiltHere/GitHubTrending";
 import { HistoricalMoment } from "@/components/CityLife/HistoricalMoment";
+import { DidYouKnow } from "@/components/CityLife/DidYouKnow";
 import { PersonOfTheDay } from "@/components/FamousBangalorean/PersonOfTheDay";
 import { WikiDeepDive } from "@/components/ThenAndNow/WikiDeepDive";
 import { CounterGrid } from "@/components/CityNumbers/CounterGrid";
@@ -14,6 +16,7 @@ import { MetroCard } from "@/components/Traffic/MetroCard";
 import { NostalgiaSection } from "@/components/Nostalgia/NostalgiaSection";
 import { NewsSection } from "@/components/News/NewsSection";
 import { EventsSection } from "@/components/Events/EventsSection";
+import { DarshiniPick } from "@/components/Food/DarshiniPick";
 import { SectionNav } from "@/components/Nav/SectionNav";
 
 /** Thin rule used between same-background sections */
@@ -130,7 +133,21 @@ export default function Home() {
             <LakeOfTheDay />
             <ParkSpotlight />
           </div>
+          <div className="mb-6">
+            <BirdOfTheDay />
+          </div>
           <BangaloreMap />
+        </div>
+      </section>
+
+      {/* ── Darshini Pick ── */}
+      <section className="py-16 px-4" style={{ backgroundColor: "#FFF4F0" }}>
+        <div className="max-w-6xl mx-auto">
+          <Label>Namma Tiffin</Label>
+          <h2 className="font-lora text-3xl md:text-4xl mb-8" style={{ color: "#2D5016" }}>
+            Darshini of the Day
+          </h2>
+          <DarshiniPick />
         </div>
       </section>
 
@@ -175,6 +192,14 @@ export default function Home() {
               <PersonOfTheDay />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── Did You Know ── */}
+      <section className="py-16 px-4" style={{ backgroundColor: "#F6F6F4" }}>
+        <div className="max-w-6xl mx-auto">
+          <Label>Bengaluru Trivia</Label>
+          <DidYouKnow />
         </div>
       </section>
 
