@@ -66,7 +66,7 @@ export function SectionNav() {
 
   return (
     <div
-      className="fixed left-0 right-0 z-40 transition-all duration-300"
+      className="fixed left-0 right-0 z-40 transition-all duration-300 lg:hidden"
       style={{
         top: "60px", // sits flush under the main nav (py-4 + text-lg ≈ 60px)
         transform: visible ? "translateY(0)" : "translateY(-110%)",

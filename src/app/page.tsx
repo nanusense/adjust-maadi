@@ -18,6 +18,7 @@ import { NewsSection } from "@/components/News/NewsSection";
 import { EventsSection } from "@/components/Events/EventsSection";
 import { DarshiniPick } from "@/components/Food/DarshiniPick";
 import { SectionNav } from "@/components/Nav/SectionNav";
+import { SectionTOC } from "@/components/Nav/SectionTOC";
 
 /** Thin rule used between same-background sections */
 function Rule() {
@@ -86,6 +87,7 @@ export default function Home() {
       </nav>
 
       <SectionNav />
+      <SectionTOC />
 
       {/* ── 1. Hero ── */}
       <div id="hero">
