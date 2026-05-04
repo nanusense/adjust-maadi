@@ -96,7 +96,7 @@ export async function GET() {
     const tempMin   = omData.daily?.temperature_2m_min?.[0] != null ? Math.round(omData.daily.temperature_2m_min[0]) : null;
     const rainChance = omData.daily?.precipitation_probability_max?.[0] ?? null;
 
-    // Hourly forecast: next 5 hours (wraps into tomorrow with forecast_days=2)
+    // Return all 48 hourly entries — client slices from live current hour
     function hourLabel(index: number): string {
       const h = index % 24;
       if (h === 0) return "12AM";
@@ -104,8 +104,7 @@ export async function GET() {
       if (h === 12) return "12PM";
       return `${h - 12}PM`;
     }
-    const hourlyForecast = Array.from({ length: 5 }, (_, i) => {
-      const idx = currentHourIndex + 1 + i;
+    const hourlyData = Array.from({ length: 48 }, (_, idx) => {
       const wmoCode = omData.hourly?.weather_code?.[idx] ?? 0;
       return {
         hour:       hourLabel(idx),
@@ -136,7 +135,7 @@ export async function GET() {
       tempMax,
       tempMin,
       rainChance,
-      hourlyForecast,
+      hourlyData,
     });
   } catch (error) {
     console.error("Weather fetch error:", error);

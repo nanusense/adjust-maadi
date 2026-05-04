@@ -71,7 +71,11 @@ export function useWeather() {
           tempMax: data.tempMax ?? null,
           tempMin: data.tempMin ?? null,
           rainChance: data.rainChance ?? null,
-          hourlyForecast: data.hourlyForecast ?? [],
+          hourlyForecast: (() => {
+            const all: HourForecast[] = data.hourlyData ?? [];
+            const startIdx = new Date().getHours() + 1;
+            return all.slice(startIdx, startIdx + 5);
+          })(),
           icon: data.weather?.[0]?.icon || "01d",
           isRainy,
           isCloudy,
