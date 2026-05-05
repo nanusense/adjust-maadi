@@ -17,6 +17,9 @@ import { NostalgiaSection } from "@/components/Nostalgia/NostalgiaSection";
 import { NewsSection } from "@/components/News/NewsSection";
 import { EventsSection } from "@/components/Events/EventsSection";
 import { DarshiniPick } from "@/components/Food/DarshiniPick";
+import { BreweryPick } from "@/components/Food/BreweryPick";
+import { WeekendEscape } from "@/components/Weekend/WeekendEscape";
+import { AQITrend } from "@/components/CityLife/AQITrend";
 import { SectionNav } from "@/components/Nav/SectionNav";
 import { SectionTOC } from "@/components/Nav/SectionTOC";
 
@@ -94,6 +97,13 @@ export default function Home() {
         <MorningGreeting />
       </div>
 
+      {/* ── AQI Trend — right below weather ── */}
+      <div className="px-4 py-8" style={{ backgroundColor: "#F6F6F4" }}>
+        <div className="max-w-sm mx-auto lg:max-w-md">
+          <AQITrend />
+        </div>
+      </div>
+
       {/* ── 2. Traffic — what people open this for ── */}
       <section id="traffic" className="py-20 px-4" style={{ backgroundColor: "#1a1a2e" }}>
         <div className="max-w-6xl mx-auto">
@@ -142,14 +152,38 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Darshini Pick ── */}
+      {/* ── Namma Table: Darshini + Brewery ── */}
       <section className="py-16 px-4" style={{ backgroundColor: "#FFF4F0" }}>
         <div className="max-w-6xl mx-auto">
-          <Label>Namma Tiffin</Label>
+          <Label>Namma Table</Label>
           <h2 className="font-lora text-3xl md:text-4xl mb-8" style={{ color: "#2D5016" }}>
-            Darshini of the Day
+            Eat &amp; Drink Bengaluru
           </h2>
-          <DarshiniPick />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div>
+              <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "#8B7355" }}>
+                ☕ Darshini of the Day
+              </p>
+              <DarshiniPick />
+            </div>
+            <div>
+              <p className="text-xs tracking-widest uppercase font-medium mb-3" style={{ color: "#8B7355" }}>
+                🍺 Craft Tap Pick
+              </p>
+              <BreweryPick />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Weekend Escape ── */}
+      <section className="py-16 px-4" style={{ backgroundColor: "#F0EDE8" }}>
+        <div className="max-w-6xl mx-auto">
+          <Label>Weekend from Bengaluru</Label>
+          <h2 className="font-lora text-3xl md:text-4xl mb-8" style={{ color: "#2D5016" }}>
+            Your Next Escape
+          </h2>
+          <WeekendEscape />
         </div>
       </section>
 
