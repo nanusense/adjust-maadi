@@ -4,8 +4,9 @@ import { useNews } from "@/hooks/useNews";
 import { ExternalLink } from "lucide-react";
 
 const SOURCE_CONFIG = {
-  "Deccan Herald":   { color: "#1a4a8a", bg: "rgba(26,74,138,0.08)"  },
-  "Citizen Matters": { color: "#2D5016", bg: "rgba(45,80,22,0.08)"   },
+  "Deccan Herald":   { color: "#1a4a8a", bg: "rgba(26,74,138,0.08)"   },
+  "The Hindu":       { color: "#8B1A1A", bg: "rgba(139,26,26,0.08)"   },
+  "Citizen Matters": { color: "#2D5016", bg: "rgba(45,80,22,0.08)"    },
 } as const;
 
 export function NewsSection() {
@@ -26,7 +27,7 @@ export function NewsSection() {
             Bengaluru Today
           </h2>
           <p className="mt-2 text-sm" style={{ color: "#8B7355" }}>
-            From Deccan Herald & Citizen Matters
+            From Deccan Herald, The Hindu &amp; Citizen Matters
           </p>
         </div>
 
@@ -100,9 +101,13 @@ export function NewsSection() {
         )}
 
         {/* Footer */}
-        <div className="mt-6 flex gap-4 text-xs" style={{ color: "#9CA3AF" }}>
+        <div className="mt-6 flex flex-wrap gap-x-4 gap-y-1 text-xs" style={{ color: "#9CA3AF" }}>
           <a href="https://www.deccanherald.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
             deccanherald.com
+          </a>
+          <span>·</span>
+          <a href="https://www.thehindu.com/news/cities/bangalore/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+            thehindu.com
           </a>
           <span>·</span>
           <a href="https://citizenmatters.in" target="_blank" rel="noopener noreferrer" className="hover:underline">

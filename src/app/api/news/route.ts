@@ -6,7 +6,7 @@ interface NewsItem {
   title: string;
   link: string;
   pubDate: string;
-  source: "Deccan Herald" | "Citizen Matters";
+  source: "Deccan Herald" | "Citizen Matters" | "The Hindu";
   sourceUrl: string;
 }
 
@@ -53,7 +53,7 @@ function timeAgo(dateStr: string): string {
 
 export async function GET() {
   try {
-    const [dhRes, cmRes] = await Promise.all([
+    const [dhRes, cmRes, thRes] = await Promise.all([
       fetch("https://www.deccanherald.com/feed", {
         next: { revalidate: 1800 },
         headers: { "User-Agent": "Mozilla/5.0 (compatible; RSS reader)" },
@@ -62,11 +62,16 @@ export async function GET() {
         next: { revalidate: 1800 },
         headers: { "User-Agent": "Mozilla/5.0 (compatible; RSS reader)" },
       }),
+      fetch("https://www.thehindu.com/news/cities/bangalore/feeder/default.rss", {
+        next: { revalidate: 1800 },
+        headers: { "User-Agent": "Mozilla/5.0 (compatible; RSS reader)" },
+      }),
     ]);
 
-    const [dhXml, cmXml] = await Promise.all([
+    const [dhXml, cmXml, thXml] = await Promise.all([
       dhRes.ok ? dhRes.text() : Promise.resolve(""),
       cmRes.ok ? cmRes.text() : Promise.resolve(""),
+      thRes.ok ? thRes.text() : Promise.resolve(""),
     ]);
 
     const dhItems = parseRSS(dhXml, "Deccan Herald", "https://www.deccanherald.com")
@@ -74,8 +79,11 @@ export async function GET() {
 
     const cmItems = parseRSS(cmXml, "Citizen Matters", "https://citizenmatters.in");
 
+    // The Hindu feed is already the Bangalore city desk — no keyword filter needed
+    const thItems = parseRSS(thXml, "The Hindu", "https://www.thehindu.com");
+
     // Merge, dedupe by title, sort newest first
-    const all = [...dhItems, ...cmItems];
+    const all = [...dhItems, ...cmItems, ...thItems];
     const seen = new Set<string>();
     const deduped = all.filter((item) => {
       const key = item.title.toLowerCase().slice(0, 60);
@@ -90,7 +98,7 @@ export async function GET() {
       return tb - ta;
     });
 
-    const news = deduped.slice(0, 10).map((item) => ({
+    const news = deduped.slice(0, 12).map((item) => ({
       ...item,
       timeAgo: timeAgo(item.pubDate),
     }));
