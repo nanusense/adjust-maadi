@@ -8,7 +8,8 @@ export interface TrafficCorridor {
   tip: string;
   metroAlternative?: string;
   alternateRoute?: string;
-  gps: { lat: number; lon: number }; // TomTom flow query point
+  origin: { lat: number; lng: number };      // route start (Google Routes API)
+  destination: { lat: number; lng: number }; // route end
 }
 
 export interface MetroLine {
@@ -39,7 +40,8 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     tip: "The worst junction in Bangalore. If you must cross it, leave before 7am or after 9pm. Or take the metro to Bommasandra.",
     metroAlternative: "Green Line to Silk Institute",
     alternateRoute: "Hosur Road via Sarjapur Road outer ring",
-    gps: { lat: 12.9177, lon: 77.6233 },
+    origin:      { lat: 12.9352, lng: 77.6245 }, // Koramangala 5th Block
+    destination: { lat: 12.8458, lng: 77.6631 }, // Electronic City Phase 1
   },
   {
     name: "Hebbal Flyover",
@@ -50,7 +52,8 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "severe",
     tip: "The gateway to the airport. Leave for the airport at least 90 mins early during peak hours. Bellary Road gets completely locked.",
     alternateRoute: "Thanisandra Main Road or Nagawara via New Airport Road",
-    gps: { lat: 13.0358, lon: 77.5970 },
+    origin:      { lat: 13.0358, lng: 77.5970 }, // Hebbal flyover
+    destination: { lat: 13.1838, lng: 77.6068 }, // Yelahanka / Airport Road
   },
   {
     name: "Marathahalli Bridge",
@@ -61,7 +64,8 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "severe",
     tip: "The IT corridor's daily nightmare. The bridge itself is the bottleneck. Use Kadubeesanahalli or Sarjapur ORR instead.",
     alternateRoute: "Kadubeesanahalli junction or Tin Factory via ORR",
-    gps: { lat: 12.9592, lon: 77.7010 },
+    origin:      { lat: 12.9698, lng: 77.7499 }, // ITPL / Whitefield
+    destination: { lat: 12.9716, lng: 77.5946 }, // MG Road / Central
   },
   {
     name: "KR Puram Bridge",
@@ -73,7 +77,8 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     tip: "The old railway bridge creates a permanent bottleneck. Metro Purple Line from Whitefield to Indiranagar is a genuine escape.",
     metroAlternative: "Purple Line: Whitefield to Indiranagar (26 min)",
     alternateRoute: "Hoodi Junction via Budigere Road",
-    gps: { lat: 13.0050, lon: 77.6942 },
+    origin:      { lat: 12.9698, lng: 77.7499 }, // Whitefield
+    destination: { lat: 13.0110, lng: 77.6580 }, // Tin Factory
   },
   {
     name: "Tin Factory Junction",
@@ -84,7 +89,8 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "heavy",
     tip: "Four roads converge here with no proper grade separator. Metro Purple Line runs parallel and is far faster.",
     metroAlternative: "Purple Line: Baiyappanahalli to Indiranagar",
-    gps: { lat: 13.0110, lon: 77.6580 },
+    origin:      { lat: 13.0050, lng: 77.6997 }, // KR Puram station
+    destination: { lat: 12.9784, lng: 77.6408 }, // 100 Feet Road, Indiranagar
   },
   {
     name: "Bannerghatta Road",
@@ -96,7 +102,8 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     tip: "The Green Line metro along this corridor will transform South Bangalore. Until then, leave early or late.",
     metroAlternative: "Green Line (under construction on this stretch)",
     alternateRoute: "Kanakapura Road or Mysore Road via NICE corridor",
-    gps: { lat: 12.9058, lon: 77.5926 },
+    origin:      { lat: 12.8929, lng: 77.5918 }, // JP Nagar 7th Phase
+    destination: { lat: 12.9177, lng: 77.6233 }, // Silk Board
   },
   {
     name: "Hosur Road",
@@ -107,7 +114,8 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "heavy",
     tip: "The 18km stretch from Silk Board to Electronic City can take 2 hours at peak. Metro Green Line (Silk Institute) reaches the end now.",
     metroAlternative: "Green Line to Silk Institute / Bommasandra",
-    gps: { lat: 12.8957, lon: 77.6360 },
+    origin:      { lat: 12.9177, lng: 77.6233 }, // Silk Board
+    destination: { lat: 12.8458, lng: 77.6631 }, // Electronic City Phase 1
   },
   {
     name: "Mysore Road",
@@ -118,7 +126,8 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "moderate",
     tip: "The Purple Line extension to Kengeri has massively eased this corridor. If you're going west, consider the metro.",
     metroAlternative: "Purple Line to Kengeri or Challaghatta",
-    gps: { lat: 12.9399, lon: 77.5338 },
+    origin:      { lat: 12.9467, lng: 77.5526 }, // Sirsi Circle
+    destination: { lat: 12.9094, lng: 77.4877 }, // Kengeri
   },
   {
     name: "Old Madras Road",
@@ -129,7 +138,8 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "moderate",
     tip: "Gets congested at railway crossings. The Purple Line extension towards Whitefield has reduced pressure significantly.",
     metroAlternative: "Purple Line: Indiranagar to Whitefield",
-    gps: { lat: 13.0069, lon: 77.7163 },
+    origin:      { lat: 13.0110, lng: 77.6580 }, // Tin Factory
+    destination: { lat: 13.0050, lng: 77.6997 }, // KR Puram
   },
   {
     name: "Outer Ring Road (South)",
@@ -140,7 +150,8 @@ export const TRAFFIC_CORRIDORS: TrafficCorridor[] = [
     severity: "severe",
     tip: "The IT corridor ORR is Bangalore's most congested stretch. 6km can take 90 minutes. There is no easy fix — leave early.",
     alternateRoute: "Sarjapur Road inner stretch or Bellandur bypass",
-    gps: { lat: 12.9380, lon: 77.6963 },
+    origin:      { lat: 12.9177, lng: 77.6233 }, // Silk Board
+    destination: { lat: 12.9592, lng: 77.7010 }, // Marathahalli
   },
 ];
 
