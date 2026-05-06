@@ -72,7 +72,7 @@ export function TrafficPulse() {
               {isLive ? (
                 <>
                   <Zap size={10} />
-                  Live · TomTom
+                  Live · Google Maps
                 </>
               ) : (
                 "Pattern-based"
@@ -191,7 +191,7 @@ export function TrafficPulse() {
 
       <div className="px-5 py-3 text-xs text-center" style={{ color: "#8B7355", borderTop: "1px solid rgba(45,80,22,0.06)" }}>
         {isLive
-          ? "Live speed data from TomTom · Updated every 10 min · Accuracy in Bengaluru may vary"
+          ? "Live traffic data from Google Maps · Updated every 10 min · Tap any corridor for tips"
           : "Based on historical Bangalore traffic patterns"}
         {" · "}Tap any corridor for tips.
       </div>
