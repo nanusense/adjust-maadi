@@ -19,7 +19,6 @@ import { EventsSection } from "@/components/Events/EventsSection";
 import { DarshiniPick } from "@/components/Food/DarshiniPick";
 import { BreweryPick } from "@/components/Food/BreweryPick";
 import { WeekendEscape } from "@/components/Weekend/WeekendEscape";
-import { AQITrend } from "@/components/CityLife/AQITrend";
 import { SectionNav } from "@/components/Nav/SectionNav";
 import { SectionTOC } from "@/components/Nav/SectionTOC";
 
@@ -95,13 +94,6 @@ export default function Home() {
       {/* ── 1. Hero ── */}
       <div id="hero">
         <MorningGreeting />
-      </div>
-
-      {/* ── AQI Trend — right below weather ── */}
-      <div className="px-4 py-8" style={{ backgroundColor: "#F6F6F4" }}>
-        <div className="max-w-sm mx-auto lg:max-w-md">
-          <AQITrend />
-        </div>
       </div>
 
       {/* ── 2. Traffic — what people open this for ── */}

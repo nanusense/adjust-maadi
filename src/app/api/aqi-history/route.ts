@@ -69,9 +69,13 @@ export async function GET() {
       }
     }
 
-    // Sort, take last 7 days
+    // Today's date in IST (YYYY-MM-DD)
+    const todayIST = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" });
+
+    // Sort, drop any future forecast dates, take last 7 historical days
     const days = Array.from(dayMap.entries())
       .sort(([a], [b]) => a.localeCompare(b))
+      .filter(([date]) => date <= todayIST)
       .slice(-7)
       .map(([date, { pm25Sum, aqiSum, count }]) => {
         const pm25     = Math.round(pm25Sum / count);
