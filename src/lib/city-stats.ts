@@ -53,7 +53,7 @@ export const BENGALURU_STATS: CityStat[] = [
   {
     label: "Active startups calling Bengaluru home",
     emoji: "🚀",
-    static: "12,000+",
+    static: "25,000+",
     color: "gold",
     description: "More startups per sq km than almost anywhere on earth",
   },

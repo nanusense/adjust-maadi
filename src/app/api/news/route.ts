@@ -27,8 +27,8 @@ function parseRSS(xml: string, source: NewsItem["source"], sourceUrl: string): N
     const inner = block[1];
     const rawTitle = inner.match(/<title>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/)?.[1]?.trim() ?? "";
     const title = decodeEntities(rawTitle);
-    const link  = inner.match(/<link>([\s\S]*?)<\/link>/)?.[1]?.trim() ?? "";
-    const pub   = inner.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1]?.trim() ?? "";
+    const link  = inner.match(/<link>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/link>/)?.[1]?.trim() ?? "";
+    const pub   = inner.match(/<pubDate>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/pubDate>/)?.[1]?.trim() ?? "";
 
     if (title && link) {
       items.push({ title, link, pubDate: pub, source, sourceUrl });

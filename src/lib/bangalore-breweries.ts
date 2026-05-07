@@ -77,7 +77,7 @@ export const BANGALORE_BREWERIES: Brewery[] = [
     signatureBeer: "Mango Sour",
     style: "Fruit Sour",
     tagline: "The brewery that thinks like a tech startup.",
-    fact: "Ironhill is reportedly India's largest brewery by capacity. Their Mango Sour has been a breakout success, showing that Bangalore drinkers are ready for acidic, fruit-forward styles.",
+    fact: "One of India's largest brewpubs by seating capacity. Their Mango Sour has been a breakout success, showing that Bangalore drinkers are ready for acidic, fruit-forward styles.",
     emoji: "⚙️",
   },
   {

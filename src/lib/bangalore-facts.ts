@@ -33,7 +33,7 @@ export const BANGALORE_FACTS: BangaloreFact[] = [
     emoji: "💧",
   },
   {
-    fact: "Bengaluru has more craft breweries than any other Indian city, over 40 at last count. A tradition that traces back to the British-era UB Group, founded here in 1857.",
+    fact: "Bengaluru has more craft breweries than any other Indian city — over 50 and counting. A tradition that traces back to the British-era UB Group, founded here in 1857.",
     emoji: "🍺",
   },
   {
@@ -45,7 +45,7 @@ export const BANGALORE_FACTS: BangaloreFact[] = [
     emoji: "🏰",
   },
   {
-    fact: "Bengaluru's IT exports account for roughly 40% of India's total IT export revenue, approximately $70 billion a year from one city.",
+    fact: "Bengaluru's IT exports account for roughly 40% of India's total IT export revenue — approximately $80 billion a year from one city.",
     emoji: "💻",
   },
   {
