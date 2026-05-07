@@ -5,11 +5,17 @@ export const revalidate = 600; // 10 minutes
 
 export interface LiveCorridor {
   name: string;
-  currentSpeed: number;
-  freeFlowSpeed: number;
-  ratio: number;           // staticDuration / duration  (1.0 = free flow)
+  ratio: number;           // staticDuration / duration  (1.0 = free flow, 0.5 = twice as slow)
+  delayText: string;       // human-readable delay description
   liveSeverity: "severe" | "heavy" | "moderate" | "clear";
   roadClosure: boolean;
+}
+
+function ratioToDelayText(ratio: number): string {
+  if (ratio >= 0.95) return "Flowing normally";
+  if (ratio >= 0.75) return `~${Math.round((1 / ratio - 1) * 100)}% slower than usual`;
+  if (ratio >= 0.50) return `~${(1 / ratio).toFixed(1)}× normal travel time`;
+  return `~${(1 / ratio).toFixed(1)}× normal travel time`;
 }
 
 function ratioToSeverity(ratio: number): LiveCorridor["liveSeverity"] {
@@ -77,12 +83,11 @@ export async function GET() {
         const ratio = trafficSecs > 0 ? freeSecs / trafficSecs : 1;
 
         return {
-          name:         corridor.name,
-          currentSpeed: Math.round(ratio * 60),  // normalised (60 = free flow)
-          freeFlowSpeed: 60,
-          ratio:         Math.round(ratio * 100) / 100,
-          liveSeverity:  ratioToSeverity(ratio),
-          roadClosure:   false,
+          name:        corridor.name,
+          ratio:       Math.round(ratio * 100) / 100,
+          delayText:   ratioToDelayText(ratio),
+          liveSeverity: ratioToSeverity(ratio),
+          roadClosure: false,
         } satisfies LiveCorridor;
       })
     );

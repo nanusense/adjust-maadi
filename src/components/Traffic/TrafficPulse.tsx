@@ -133,7 +133,7 @@ export function TrafficPulse() {
                         {corridor.from} → {corridor.to}
                         {liveData && (
                           <span className="ml-1.5 opacity-60">
-                            · {liveData.currentSpeed} km/h
+                            · {liveData.delayText}
                           </span>
                         )}
                       </div>
@@ -153,7 +153,7 @@ export function TrafficPulse() {
                   {liveData && (
                     <div className="flex items-center gap-2 text-xs py-2 px-3 rounded mb-1"
                       style={{ background: "rgba(45,80,22,0.05)", color: "#2D5016" }}>
-                      <span>🚗 Speed now: <strong>{liveData.currentSpeed} km/h</strong></span>
+                      <span>🚗 Right now: <strong>{liveData.delayText}</strong></span>
                     </div>
                   )}
                   <div className="flex items-start gap-2 text-xs" style={{ color: "#5C3A1E" }}>
