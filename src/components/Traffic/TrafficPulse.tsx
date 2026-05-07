@@ -133,7 +133,9 @@ export function TrafficPulse() {
                         {corridor.from} → {corridor.to}
                         {liveData && (
                           <span className="ml-1.5 opacity-60">
-                            · {liveData.delayText}
+                            {liveData.ratio >= 0.95
+                              ? `· ${liveData.currentMins} min (on time)`
+                              : `· Now ${liveData.currentMins} min (usually ${liveData.typicalMins} min)`}
                           </span>
                         )}
                       </div>
@@ -153,7 +155,10 @@ export function TrafficPulse() {
                   {liveData && (
                     <div className="flex items-center gap-2 text-xs py-2 px-3 rounded mb-1"
                       style={{ background: "rgba(45,80,22,0.05)", color: "#2D5016" }}>
-                      <span>🚗 Right now: <strong>{liveData.delayText}</strong></span>
+                      {liveData.ratio >= 0.95
+                        ? <span>🚗 <strong>{liveData.currentMins} min</strong> — moving freely</span>
+                        : <span>🚗 Now <strong>{liveData.currentMins} min</strong> · Usually {liveData.typicalMins} min · <strong>+{liveData.currentMins - liveData.typicalMins} min delay</strong></span>
+                      }
                     </div>
                   )}
                   <div className="flex items-start gap-2 text-xs" style={{ color: "#5C3A1E" }}>
