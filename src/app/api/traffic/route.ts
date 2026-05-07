@@ -8,6 +8,7 @@ export interface LiveCorridor {
   ratio: number;           // staticDuration / duration  (1.0 = free flow, 0.5 = twice as slow)
   typicalMins: number;     // usual travel time without traffic
   currentMins: number;     // current travel time with traffic
+  distanceKm: number;      // route distance in km
   liveSeverity: "severe" | "heavy" | "moderate" | "clear";
   roadClosure: boolean;
 }
@@ -39,7 +40,7 @@ export async function GET() {
               "Content-Type": "application/json",
               "X-Goog-Api-Key": key,
               // Only fetch the two fields we need — saves response size
-              "X-Goog-FieldMask": "routes.duration,routes.staticDuration",
+              "X-Goog-FieldMask": "routes.duration,routes.staticDuration,routes.distanceMeters",
             },
             body: JSON.stringify({
               origin: {
@@ -81,6 +82,7 @@ export async function GET() {
           ratio:       Math.round(ratio * 100) / 100,
           typicalMins: Math.round(freeSecs / 60),
           currentMins: Math.round(trafficSecs / 60),
+          distanceKm:  Math.round((route.distanceMeters ?? 0) / 100) / 10,
           liveSeverity: ratioToSeverity(ratio),
           roadClosure: false,
         } satisfies LiveCorridor;

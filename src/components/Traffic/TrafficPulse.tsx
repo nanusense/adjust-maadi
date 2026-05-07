@@ -133,9 +133,10 @@ export function TrafficPulse() {
                         {corridor.from} → {corridor.to}
                         {liveData && (
                           <span className="ml-1.5 opacity-60">
+                            {`· ${liveData.distanceKm} km · `}
                             {liveData.ratio >= 0.95
-                              ? `· ${liveData.currentMins} min (on time)`
-                              : `· Now ${liveData.currentMins} min (usually ${liveData.typicalMins} min)`}
+                              ? `${liveData.currentMins} min (on time)`
+                              : `Now ${liveData.currentMins} min (usually ${liveData.typicalMins} min)`}
                           </span>
                         )}
                       </div>
