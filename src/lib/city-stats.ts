@@ -30,11 +30,11 @@ export const BENGALURU_STATS: CityStat[] = [
     description: "~3M Spotify users, ~7 songs each per day",
   },
   {
-    label: "IT professionals working in the city",
-    emoji: "💻",
-    static: "2,000,000+",
-    color: "blue",
-    description: "The Silicon Valley of the East",
+    label: "Bengaluru's altitude above sea level",
+    emoji: "🏔️",
+    static: "920 m",
+    color: "sky",
+    description: "Higher than any other major Indian city — the reason the weather is legendary",
   },
   {
     label: "Trees in Cubbon Park",
@@ -58,10 +58,10 @@ export const BENGALURU_STATS: CityStat[] = [
     description: "More startups per sq km than almost anywhere on earth",
   },
   {
-    label: "GitHub repos created by Bengaluru devs this year",
-    emoji: "👨‍💻",
-    perSecond: 0.095,
-    color: "purple",
-    description: "Building the future, one commit at a time",
+    label: "Namma Metro riders today",
+    emoji: "🚇",
+    perSecond: 4.75,
+    color: "blue",
+    description: "~4.1 lakh rides/day · 150M+ passengers in 2024",
   },
 ];
