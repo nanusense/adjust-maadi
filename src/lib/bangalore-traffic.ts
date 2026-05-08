@@ -24,7 +24,7 @@ export interface MetroLine {
   frequency: string;
   fare: string;
   status: "operational" | "partial" | "construction";
-  keyStations: string[];
+  allStations: string[];  // complete station list in order
   interchangeAt: string[]; // stations shared with another line
   connects: string; // what it links / why it matters
 }
@@ -170,10 +170,15 @@ export const METRO_LINES: MetroLine[] = [
     status: "operational",
     interchangeAt: ["Majestic"],
     connects: "East Bangalore (Whitefield, IT corridor) to West (Kengeri, Mysore Road). The city's spine.",
-    keyStations: [
-      "Whitefield", "Hoodi", "KR Puram", "Baiyappanahalli", "Indiranagar",
-      "Halasuru", "Trinity", "MG Road", "Cubbon Park", "Majestic",
-      "City Railway Station", "Hosahalli", "Mysore Road", "Kengeri", "Challaghatta"
+    allStations: [
+      "Whitefield (Kadugodi)", "Hoodi", "Channasandra", "Pattandur Agrahara",
+      "Kadugodi", "Brookefield", "ITPL", "Doddanakundi", "Mahadevapura",
+      "Garudacharapalya", "Hope Farm", "KR Puram", "Byappanahalli",
+      "Baiyappanahalli", "Swami Vivekananda Road", "Indiranagar", "Halasuru",
+      "Trinity", "MG Road", "Cubbon Park", "Vidhana Soudha",
+      "Sir M Visvesvaraya Station", "Majestic", "City Railway Station",
+      "Magadi Road", "Mysore Road", "Hosahalli", "Nayandahalli",
+      "Pattanagere", "Kengeri Bus Terminal", "Kengeri", "Challaghatta",
     ],
   },
   {
@@ -190,11 +195,14 @@ export const METRO_LINES: MetroLine[] = [
     status: "operational",
     interchangeAt: ["Majestic"],
     connects: "Peenya industrial zone (North) through the old city centre to Electronic City (South).",
-    keyStations: [
-      "Nagasandra", "Dasarahalli", "Peenya", "Rajajinagar", "Mahalakshmi",
-      "Sandal Soap Factory", "Yeshwanthpur", "Srirampura", "Majestic",
-      "Chickpete", "KR Market", "National College", "Lalbagh", "Jayanagar",
-      "Banashankari", "Gottigere", "Silk Institute"
+    allStations: [
+      "Nagasandra", "Dasarahalli", "Jalahalli", "Peenya Industry", "Peenya",
+      "Goraguntepalya", "Yeshwanthpur", "Sandal Soap Factory", "Mahalakshmi",
+      "Rajajinagar", "Kuvempu Road", "Srirampura", "Majestic",
+      "City Market (K.R. Market)", "Chickpete", "NR Colony", "National College",
+      "Lalbagh", "South End Circle", "Jayanagar", "Rashtreeya Vidyalaya Road",
+      "Banashankari", "JP Nagar", "Yelachenahalli", "Konanakunte Cross",
+      "Doddakallasandra", "Vajrahalli", "Thalaghattapura", "Gottigere", "Silk Institute",
     ],
   },
   {
@@ -211,10 +219,12 @@ export const METRO_LINES: MetroLine[] = [
     status: "construction",
     interchangeAt: [],
     connects: "When complete, will link South Bangalore's residential belt to Electronic City's tech parks.",
-    keyStations: [
+    allStations: [
       "RV Road", "Jayanagar 4th Block", "Dairy Circle", "Langford Town",
-      "Central Silk Board", "HSR Layout", "Agara", "Bellandur",
-      "Kadubeesanahalli", "Doddakannalli", "Bommasandra"
+      "Central Silk Board", "HSR Layout", "Agara", "Bellandur Road",
+      "Kadubeesanahalli", "Doddakannalli", "Panathur", "Haralur Road",
+      "Harlur", "Carmelaram", "Sarjapura Road", "Ambalipura",
+      "Chandapura", "Bommasandra",
     ],
   },
   {
@@ -231,10 +241,11 @@ export const METRO_LINES: MetroLine[] = [
     status: "construction",
     interchangeAt: [],
     connects: "Will link Gottigere in South to Nagawara in North via BTM, Koramangala and Shivajinagar.",
-    keyStations: [
-      "Kalena Agrahara", "Gottigere", "Hulimavu", "Banashankari", "JP Nagar",
-      "Jayanagar", "Lakkasandra", "BTM Layout", "Agara", "Koramangala",
-      "Indiranagar", "Halasuru", "Ulsoor", "Shivajinagar", "Pottery Town", "Nagawara"
+    allStations: [
+      "Kalena Agrahara", "Gottigere", "Hulimavu", "Banashankari",
+      "JP Nagar", "Jayanagar", "Lakkasandra", "BTM Layout", "Agara",
+      "Koramangala", "Indiranagar", "Halasuru", "Ulsoor",
+      "Shivajinagar", "Pottery Town", "Nagawara",
     ],
   },
 ];
