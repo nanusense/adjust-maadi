@@ -21,6 +21,7 @@ import { BreweryPick } from "@/components/Food/BreweryPick";
 import { WeekendEscape } from "@/components/Weekend/WeekendEscape";
 import { SectionNav } from "@/components/Nav/SectionNav";
 import { SectionTOC } from "@/components/Nav/SectionTOC";
+import { HeroNav } from "@/components/Hero/HeroNav";
 
 /** Thin rule used between same-background sections */
 function Rule() {
@@ -96,6 +97,9 @@ export default function Home() {
         <MorningGreeting />
       </div>
 
+      {/* ── Hero quick-jump nav ── */}
+      <HeroNav />
+
       {/* ── 2. Traffic — what people open this for ── */}
       <section id="traffic" className="py-20 px-4" style={{ backgroundColor: "#1a1a2e" }}>
         <div className="max-w-6xl mx-auto">
@@ -169,7 +173,7 @@ export default function Home() {
       </section>
 
       {/* ── Weekend Escape ── */}
-      <section className="py-16 px-4" style={{ backgroundColor: "#F0EDE8" }}>
+      <section id="escape" className="py-16 px-4" style={{ backgroundColor: "#F0EDE8" }}>
         <div className="max-w-6xl mx-auto">
           <Label>Weekend from Bengaluru</Label>
           <h2 className="font-lora text-3xl md:text-4xl mb-8" style={{ color: "#2D5016" }}>
