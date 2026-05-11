@@ -50,7 +50,7 @@ export function PersonOfTheDay() {
 
       {/* Known for */}
       <div
-        className="mx-6 mb-4 p-4 rounded"
+        className="mx-6 mb-6 p-4 rounded"
         style={{ background: "rgba(45, 80, 22, 0.05)" }}
       >
         <p className="text-sm leading-relaxed" style={{ color: "#5C3A1E" }}>
@@ -58,22 +58,6 @@ export function PersonOfTheDay() {
         </p>
       </div>
 
-      {/* Quote */}
-      <div className="px-6 pb-6">
-        <blockquote
-          className="font-lora italic text-sm md:text-base leading-relaxed"
-          style={{
-            color: "#2D5016",
-            borderLeft: "3px solid #D4A843",
-            paddingLeft: "1rem",
-          }}
-        >
-          &ldquo;{person.quote}&rdquo;
-        </blockquote>
-        <cite className="text-xs mt-2 block" style={{ color: "#8B7355" }}>
-          {person.name}
-        </cite>
-      </div>
     </div>
   );
 }

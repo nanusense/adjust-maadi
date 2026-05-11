@@ -5,7 +5,8 @@ const NAV_ITEMS = [
   { kannada: "ಸುದ್ದಿ",         label: "City News",     desc: "Deccan Herald · The Hindu · Citizen Matters", href: "#news"     },
   { kannada: "ಕಾರ್ಯಕ್ರಮ",    label: "What's On",     desc: "Tech meetups & events today",     href: "#events"   },
   { kannada: "ಕನ್ನಡ ಗೊತ್ತಾ?",  label: "ಕನ್ನಡ",        desc: "Word of the day",                 href: "#kannada"  },
-  { kannada: "ಪ್ರವಾಸ",         label: "Next Escape",   desc: "Your weekend day trip from the city", href: "#escape" },
+  { kannada: "ಪ್ರವಾಸ",         label: "Next Escape",   desc: "Your weekend day trip from the city", href: "#escape"  },
+  { kannada: "ನಗರದ ಬಡಿತ",    label: "City Pulse",    desc: "Live numbers, city facts",           href: "#numbers" },
 ];
 
 function scrollTo(href: string) {
@@ -25,7 +26,7 @@ export function HeroNav() {
 
       {/* Container — gap-px trick for hairline dividers */}
       <div
-        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
+        className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6"
         style={{
           gap: 1,
           background: "rgba(0,0,0,0.10)",

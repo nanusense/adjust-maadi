@@ -43,13 +43,13 @@ export function BirdOfTheDay() {
     >
       <div className="flex flex-col sm:flex-row">
         {/* Photo */}
-        <div className="relative sm:w-48 h-48 sm:h-auto flex-shrink-0 bg-[#E8F2EA]">
+        <div className="relative sm:w-56 h-56 sm:h-auto flex-shrink-0 bg-[#E8F2EA]">
           {bird.photo ? (
             <Image
               src={bird.photo}
               alt={bird.name}
               fill
-              className="object-cover"
+              className="object-contain"
               unoptimized
             />
           ) : (

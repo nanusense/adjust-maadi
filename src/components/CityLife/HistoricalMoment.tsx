@@ -62,12 +62,6 @@ export function HistoricalMoment() {
           {event.description}
         </p>
 
-        <div
-          className="mt-4 pt-4 text-xs italic"
-          style={{ borderTop: "1px solid rgba(198, 124, 42, 0.15)", color: "#8B7355" }}
-        >
-          Every great city carries its history with pride. Bengaluru wears hers beautifully.
-        </div>
       </div>
     </div>
   );
