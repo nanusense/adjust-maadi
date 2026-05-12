@@ -22,6 +22,7 @@ import { WeekendEscape } from "@/components/Weekend/WeekendEscape";
 import { SectionNav } from "@/components/Nav/SectionNav";
 import { SectionTOC } from "@/components/Nav/SectionTOC";
 import { HeroNav } from "@/components/Hero/HeroNav";
+import { RCBPulse } from "@/components/Cricket/RCBPulse";
 
 /** Thin rule used between same-background sections */
 function Rule() {
@@ -99,6 +100,9 @@ export default function Home() {
 
       {/* ── Hero quick-jump nav ── */}
       <HeroNav />
+
+      {/* ── RCB live strip (IPL season only — auto-hides off-season) ── */}
+      <RCBPulse />
 
       {/* ── 2. Traffic — what people open this for ── */}
       <section id="traffic" className="py-20 px-4" style={{ backgroundColor: "#1a1a2e" }}>
