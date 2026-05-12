@@ -9,7 +9,7 @@ const RCB_NAMES = ["royal challengers bengaluru", "royal challengers bangalore",
 const isRCB = (s: string) => RCB_NAMES.some(n => s.toLowerCase().includes(n.slice(0, 12)));
 
 interface Score  { r: number; w: number; o: number; inning: string }
-interface Match  { name: string; status: string; teams: string[]; score: Score[]; venue: string; matchStarted: boolean; matchEnded: boolean; dateTimeGMT: string; series_id?: string }
+interface Match  { name: string; status: string; teams: string[]; score: Score[]; venue: string; matchStarted: boolean; matchEnded: boolean; dateTimeGMT: string; date?: string; series_id?: string }
 interface Row    { team?: string; teamName?: string; pos?: number; rank?: number; played?: number; matchesPlayed?: number; won?: number; wins?: number; lost?: number; loss?: number; pts?: number; points?: number; nrr?: string }
 
 async function cd<T>(path: string): Promise<T> {
