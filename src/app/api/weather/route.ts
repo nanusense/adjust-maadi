@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
-export const revalidate = 600; // 10 minutes
+// Always serve fresh — upstream fetch to Open-Meteo is cached server-side for 10 min
+export const dynamic = "force-dynamic";
 
 const LAT = "12.9716";
 const LON = "77.5946";
