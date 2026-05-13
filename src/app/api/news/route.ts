@@ -82,10 +82,19 @@ export async function GET() {
     // The Hindu feed is already the Bangalore city desk — no keyword filter needed
     const thItems = parseRSS(thXml, "The Hindu", "https://www.thehindu.com");
 
-    // Merge, dedupe by title, sort newest first
-    const all = [...dhItems, ...cmItems, ...thItems];
+    // Sort each source by date, cap at 4 each — guarantees all three sources appear
+    function sortByDate(items: NewsItem[]) {
+      return [...items].sort((a, b) => (new Date(b.pubDate).getTime() || 0) - (new Date(a.pubDate).getTime() || 0));
+    }
+    const capped = [
+      ...sortByDate(dhItems).slice(0, 4),
+      ...sortByDate(cmItems).slice(0, 4),
+      ...sortByDate(thItems).slice(0, 4),
+    ];
+
+    // Dedupe by title then sort combined set newest-first
     const seen = new Set<string>();
-    const deduped = all.filter((item) => {
+    const deduped = capped.filter((item) => {
       const key = item.title.toLowerCase().slice(0, 60);
       if (seen.has(key)) return false;
       seen.add(key);
