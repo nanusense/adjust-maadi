@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
-export const revalidate = 3600; // 1 hour
+// Always fresh — events are time-sensitive; upstream Luma fetch is cached 30 min
+export const dynamic = "force-dynamic";
 
 export interface LumaEvent {
   id: string;
@@ -38,7 +39,7 @@ export async function GET() {
       // Use explicit lat/lon so results are location-correct from any server IP
       "https://api.lu.ma/discover/get-paginated-events?pagination_limit=50&latitude=12.9716&longitude=77.5946",
       {
-        next: { revalidate: 3600 },
+        next: { revalidate: 1800 },
         headers: { Accept: "application/json" },
       }
     );
@@ -68,17 +69,16 @@ export async function GET() {
         };
       })
       .filter((ev: LumaEvent) => {
-        // Only show events that start today or tomorrow (IST)
-        const now = new Date();
-        const istOffset = 5.5 * 60 * 60 * 1000;
-        const todayIST  = new Date(now.getTime() + istOffset);
-        todayIST.setUTCHours(0, 0, 0, 0);
-        const tomorrowEnd = new Date(todayIST.getTime() + 2 * 24 * 60 * 60 * 1000); // end of tomorrow
+        // Show only events that START today or tomorrow (IST).
+        // Filter on startAt so stale-cached responses can't surface past events.
+        const istOffsetMs = 5.5 * 60 * 60 * 1000;
+        const nowIST = Date.now() + istOffsetMs;
+        // Midnight today (IST) expressed as UTC ms
+        const todayStartUTC = nowIST - (nowIST % (24 * 60 * 60 * 1000)) - istOffsetMs;
+        const tomorrowEndUTC = todayStartUTC + 2 * 24 * 60 * 60 * 1000;
 
-        const startIST = new Date(ev.startAt).getTime();
-        const endIST   = new Date(ev.endAt).getTime();
-
-        return startIST < tomorrowEnd.getTime() && endIST > Date.now();
+        const startUTC = new Date(ev.startAt).getTime();
+        return startUTC >= todayStartUTC && startUTC < tomorrowEndUTC;
       });
 
     return NextResponse.json({ events });
